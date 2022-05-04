@@ -69,7 +69,7 @@ ibm-sfg-prod:
     nistComplianceMode: "off"
     # Provide the DB attributes
     dbVendor: db2
-    dbHost: 20.81.15.230
+    dbHost: 20.121.230.44
     dbPort: 50000
     dbData: B2BIDB
     dbDrivers: db2jcc4.jar
@@ -89,9 +89,9 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.30.241.28
+    jmsHost: 172.30.198.26
     jmsPort: 1414
-    jmsConnectionNameList: 172.30.241.28(1414)
+    jmsConnectionNameList: 172.30.198.26(1414)
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
