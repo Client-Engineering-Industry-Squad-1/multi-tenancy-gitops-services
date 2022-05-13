@@ -7,7 +7,6 @@ ibm-ppc-qm:
     license:
       accept: true
       license: L-APIG-BYHCL7
-      metric: ProcessorValueUnit
       use: Development
     version: 9.2.5.0-r2
     storageClassName: azure-file
