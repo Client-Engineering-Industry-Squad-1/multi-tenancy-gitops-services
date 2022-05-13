@@ -1,4 +1,4 @@
-ppc-qm:
+ibm-ppc-qm:
   metadata:
     name: ppcmq
     namespace: tools
