@@ -1,5 +1,6 @@
 ppc-qm:
   metadata:
+    generation: 1
     name: ppcmq
     namespace: tools
   spec:
