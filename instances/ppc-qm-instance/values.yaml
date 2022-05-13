@@ -1,34 +1,12 @@
-# Default values for ppcmq.
-# This is a YAML-formatted file.
-# Declare variables to be passed into your templates.
 metadata:
-  generation: 2
   name: ppcqm
   namespace: tools
 spec:
+  name: ppcqm
   license:
     accept: true
     license: L-APIG-BYHCL7
     metric: ProcessorValueUnit
     use: Development
-  queueManager:
-    metrics:
-      enabled: true
-    resources:
-      limits:
-        cpu: 500m
-        memory: 1Gi
-      requests:
-        cpu: 500m
-        memory: 1Gi 
-    route:
-      enabled: true
-    name: ppcqm
-    imagePullPolicy: IfNotPresent
-    storage:
-      defaultClass: azure-file
-      queueManager:
-        type: ephemeral
   version: 9.2.5.0-r2
-  web:
-    enabled: true
+  storageClassName: azure-file

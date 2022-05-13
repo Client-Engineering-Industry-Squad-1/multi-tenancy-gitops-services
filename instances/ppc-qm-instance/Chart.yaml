@@ -1,6 +1,10 @@
 apiVersion: v2
-name: ppcmq
-description: A Helm chart for Kubernetes
-type: application
+name: ppcqm
 version: 0.1.0
 appVersion: "1.16.0"
+type: application
+description: QM - for PEPSICO Project
+dependencies:
+  - name: ppcmq
+    version: 0.1.0
+    repository: https://therayy.github.io/pepsico-instances/
