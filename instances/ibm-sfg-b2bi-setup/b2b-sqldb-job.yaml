@@ -1,0 +1,46 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: tools
+  annotations:
+    argocd.argoproj.io/sync-wave: "285"
+  name: "ibm-b2bi-psp"
+  labels:
+    app: "ibm-b2bi-psp"
+spec:
+  template:
+    spec:
+      serviceAccountName: b2bi
+      containers:
+      - name: "b2bi-azure-sql-create-tables"
+        image: quay.io/ibmtechgarage/msqldb-sfg:1.0.8
+        imagePullPolicy: Always
+        command: ["bash"]
+        args:
+          - "-c"
+          - "/var/custom/createDB.sh"
+        env:
+          - name: DB_NAME
+            value: "B2BIDB"
+          - name: DB_SERVER_HOST
+            value: "pepsi-b2bi-poc-sql1.database.windows.net"
+          - name: DB_PORT
+            value: "1433"
+          - name: NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: b2b-db-secret
+                key: DB_USER
+                optional: false
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: b2b-db-secret
+                key: DB_PASSWORD
+                optional: false
+      restartPolicy: Never
+  backoffLimit: 4

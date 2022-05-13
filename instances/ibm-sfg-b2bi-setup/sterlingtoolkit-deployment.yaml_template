@@ -16,8 +16,8 @@ spec:
     spec:
       containers:
       - name: sterlingtoolkit
-        image: quay.io/hollisc/sterlingtoolkit:1.0.6
-        command: ["/bin/bash", "-ce", "cp /temp/db2jcc4.jar /var/nfs-data/resources/ && tail -f /dev/null"]
+        image: quay.io/ibmtechgarage/sterlingtoolkit:1.0.8
+        command: ["/bin/bash", "-ce", "cp /temp/*.jar /var/nfs-data/resources/ && tail -f /dev/null"]
         volumeMounts:
         - mountPath: /var/nfs-data/resources
           name: volume
