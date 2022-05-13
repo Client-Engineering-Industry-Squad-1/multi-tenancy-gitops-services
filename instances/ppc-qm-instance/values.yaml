@@ -1,9 +1,9 @@
 ppc-qm:
   metadata:
-    name: ppcqm
+    name: ppcmq
     namespace: tools
   spec:
-    name: ppcqm
+    name: ppcmq
     license:
       accept: true
       license: L-APIG-BYHCL7
