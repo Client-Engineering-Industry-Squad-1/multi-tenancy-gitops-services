@@ -68,11 +68,11 @@ ibm-sfg-prod:
     # NIST 800-131a compliance mode. Please enter one of these values - strict/transition/"off"
     nistComplianceMode: "off"
     # Provide the DB attributes
-    dbVendor: db2
-    dbHost: 20.121.230.44
-    dbPort: 50000
+    dbVendor: mssql
+    dbHost: pepsi-b2bi-poc-sql1.database.windows.net
+    dbPort: 1433
     dbData: B2BIDB
-    dbDrivers: db2jcc4.jar
+    dbDrivers: mssql-jdbc-10.2.1.jre8.jar
     dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
