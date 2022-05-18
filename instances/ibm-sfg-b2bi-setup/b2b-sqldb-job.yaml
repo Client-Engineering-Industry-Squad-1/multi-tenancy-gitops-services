@@ -13,7 +13,6 @@ spec:
       serviceAccountName: b2bi
       containers:
       - name: "b2bi-azure-sql-create-tables"
-        :
         securityContext:
             runAsUser: 0
         image: quay.io/ibmtechgarage/msqldb-sfg:1.0.8
