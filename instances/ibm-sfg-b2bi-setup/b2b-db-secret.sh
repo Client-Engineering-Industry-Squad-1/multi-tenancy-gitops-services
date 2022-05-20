@@ -15,10 +15,10 @@ SEALED_SECRET_CONTOLLER_NAME=${SEALED_SECRET_CONTOLLER_NAME:-sealed-secrets}
 oc create secret generic b2b-db-secret --type=Opaque \
 --from-literal=DB_USER=dbadmin \
 --from-literal=DB_PASSWORD=${B2B_DB_SECRET} \
---dry-run=client -o yaml > delete-b2b-db-secret-secret.yaml
+--dry-run=client -o yaml > delete-b2b-db-secret.yaml
 
 # Encrypt the secret using kubeseal and private key from the cluster
-kubeseal -n tools --controller-name=${SEALED_SECRET_CONTOLLER_NAME} --controller-namespace=${SEALED_SECRET_NAMESPACE} -o yaml < delete-b2b-db-secret-secret.yaml > b2b-db-secret-secret.yaml
+kubeseal -n tools --controller-name=${SEALED_SECRET_CONTOLLER_NAME} --controller-namespace=${SEALED_SECRET_NAMESPACE} -o yaml < delete-b2b-db-secret.yaml > b2b-db-secret.yaml
 
 # NOTE, do not check delete-b2b-db-secret-secret.yaml into git!
-rm delete-b2b-db-secret-secret.yaml
+rm delete-b2b-db-secret.yaml
