@@ -14,8 +14,8 @@ spec:
       containers:
       - name: "b2bi-azure-sql-create-tables"
         securityContext:
-            runAsUser: 0
-        image: quay.io/ibmtechgarage/msqldb-sfg:1.0.8
+          runAsUser: 1010
+        image: quay.io/ibmtechgarage/msqldb-b2bi:1.0.0
         imagePullPolicy: Always
         command: ["bash"]
         args:
