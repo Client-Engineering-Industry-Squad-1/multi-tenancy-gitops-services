@@ -20,7 +20,8 @@ spec:
         command: ["bash"]
         args:
           - "-c"
-          - "/var/custom/createDB.sh"
+          - "cd /var/custom/"
+          - "./createDB.sh"
         env:
           - name: DB_NAME
             value: "B2BIDB"
@@ -28,10 +29,10 @@ spec:
             value: "pepsi-b2bi-poc-sql1.database.windows.net"
           - name: DB_PORT
             value: "1433"
-          - name: NAMESPACE
-            valueFrom:
-              fieldRef:
-                fieldPath: metadata.namespace
+          # - name: NAMESPACE
+            # valueFrom:
+            #   fieldRef:
+            #     fieldPath: metadata.namespace
           - name: DB_USER
             valueFrom:
               secretKeyRef:
