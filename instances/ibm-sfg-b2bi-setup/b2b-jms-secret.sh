@@ -23,7 +23,7 @@ SEALED_SECRET_CONTOLLER_NAME=${SEALED_SECRET_CONTOLLER_NAME:-sealed-secrets}
 
 # Create Kubernetes Secret yaml
 oc create secret generic b2b-jms-secret --type=Opaque \
---from-literal=JMS_USERNAME=app \
+--from-literal=JMS_USERNAME=admin \
 --from-literal=JMS_PASSWORD=${JMS_PASSWORD} \
 --from-literal=JMS_KEYSTORE_PASSWORD=${JMS_KEYSTORE_PASSWORD} \
 --from-literal=JMS_TRUSTSTORE_PASSWORD=${JMS_TRUSTSTORE_PASSWORD} \
