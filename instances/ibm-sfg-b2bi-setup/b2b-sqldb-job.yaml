@@ -15,12 +15,11 @@ spec:
       - name: "b2bi-azure-sql-create-tables"
         securityContext:
           runAsUser: 1010
-        image: quay.io/ibmtechgarage/msqldb-b2bi:1.0.0
+        image: quay.io/ibmtechgarage/msqldb-b2bi:1.0.2
         imagePullPolicy: Always
         command: ["bash"]
         args:
           - "-c"
-          - "cd /var/custom/"
           - "./createDB.sh"
         env:
           - name: DB_NAME
@@ -29,10 +28,6 @@ spec:
             value: "pepsi-b2bi-poc-sql1.database.windows.net"
           - name: DB_PORT
             value: "1433"
-          # - name: NAMESPACE
-            # valueFrom:
-            #   fieldRef:
-            #     fieldPath: metadata.namespace
           - name: DB_USER
             valueFrom:
               secretKeyRef:
