@@ -8,8 +8,10 @@ SFG_PULLSECRECT=${SFG_PULLSECRECT:-"ibm-entitlement-key"}
 APP_RESOURCES_PVC_ENABLED=${APP_RESOURCES_PVC_ENABLED:-"true"}
 APP_DOCUMENTS_PVC_ENABLED=${APP_DOCUMENTS_PVC_ENABLED:-"true"}
 DATASETUP_ENABLED=${DATASETUP_ENABLED:-"true"}
-DBHOST=$(oc get svc db2-lb -n db2 -o jsonpath='{ .status.loadBalancer.ingress[0].ip}')
-DBPORT=$(oc get svc db2-lb -n db2 -o jsonpath='{ .spec.ports[0].port}')
+DBVENDOR=${DBVENDOR:-"mssql"} 
+DBDRIVERS=${DBDRIVERS:-"mssql-jdbc-10.2.1.jre8.jar"} 
+DBHOST=${DBHOST:-"pepsi-b2bi-poc-sql1.database.windows.net"}
+DBPORT=${DBPORT:-"1433"}
 DBDATA=${DBDATA:-"B2BIDB"}
 DBCREATESCHEMA=${DBCREATESCHEMA:-"true"}
 JMSHOST=$(oc get svc mq-data -n mq -o jsonpath='{ .spec.clusterIP}')
@@ -34,6 +36,8 @@ DATASETUP_ENABLED=${DATASETUP_ENABLED} \
 DBHOST=${DBHOST} \
 DBPORT=${DBPORT} \
 DBDATA=${DBDATA} \
+DBVENDOR=${DBVENDOR} \
+DBDRIVERS=${DBDRIVERS} \
 DBCREATESCHEMA=${DBCREATESCHEMA} \
 JMSHOST=${JMSHOST} \
 JMSPORT=${JMSPORT} \

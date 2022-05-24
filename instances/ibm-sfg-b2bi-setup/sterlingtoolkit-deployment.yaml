@@ -20,15 +20,21 @@ spec:
         command: ["/bin/bash", "-ce", "cp /temp/*.jar /var/nfs-data/resources/ && tail -f /dev/null"]
         volumeMounts:
         - mountPath: /var/nfs-data/resources
-          name: volume
-          subPath: resources
+          name: resources
+          #subPath: resources
         - mountPath: /var/nfs-data/documents
-          name: volume
-          subPath: documents
+          name: documents
+          #subPath: documents
         - mountPath: /var/nfs-data/logs
-          name: volume
-          subPath: logs
+          name: logs
+          #subPath: logs
       volumes:
-      - name: volume
+      - name: documents
         persistentVolumeClaim:
-          claimName: sterlingb2bitoolkit-pvc
+          claimName: ibm-sfg-b2bi-sfg-documents
+      - name: logs
+        persistentVolumeClaim:
+          claimName: ibm-sfg-b2bi-sfg-logs
+      - name: resources
+        persistentVolumeClaim:
+          claimName: ibm-sfg-b2bi-sfg-resources

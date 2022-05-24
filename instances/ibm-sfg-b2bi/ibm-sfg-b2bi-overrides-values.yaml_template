@@ -17,7 +17,7 @@ ibm-sfg-prod:
   appResourcesPVC:
     enabled: ${APP_RESOURCES_PVC_ENABLED}
     name: resources
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "resources"
@@ -25,7 +25,7 @@ ibm-sfg-prod:
     size: 100Mi
   appLogsPVC:
     name: logs
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "logs"
@@ -34,7 +34,7 @@ ibm-sfg-prod:
   appDocumentsPVC:
     enabled: ${APP_DOCUMENTS_PVC_ENABLED}
     name: documents
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "documents"
@@ -68,11 +68,11 @@ ibm-sfg-prod:
     # NIST 800-131a compliance mode. Please enter one of these values - strict/transition/"off"
     nistComplianceMode: "off"
     # Provide the DB attributes
-    dbVendor: db2
+    dbVendor: ${DBVENDOR}
     dbHost: ${DBHOST}
     dbPort: ${DBPORT}
     dbData: ${DBDATA}
-    dbDrivers: db2jcc4.jar
+    dbDrivers: ${DBDRIVERS}
     dbCreateSchema: ${DBCREATESCHEMA}
     # Name of DB secret
     dbSecret: b2b-db-secret
