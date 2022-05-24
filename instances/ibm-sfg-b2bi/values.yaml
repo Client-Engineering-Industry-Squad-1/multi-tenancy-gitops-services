@@ -166,7 +166,7 @@ ibm-sfg-prod:
           protocol: TCP
     ingress:
       internal:
-        host: asi.pawaro.eastus.aroapp.io
+        host: asi.apps.pawaro.eastus.aroapp.io
         tls:
           enabled: true
           secretName: ""
@@ -222,7 +222,7 @@ ibm-sfg-prod:
         #  protocol: TCP
     ingress:
       internal:
-        host: ac.pawaro.eastus.aroapp.io
+        host: ac.apps.pawaro.eastus.aroapp.io
         tls:
           enabled: true
           secretName: ""
@@ -256,7 +256,7 @@ ibm-sfg-prod:
         # protocol: TCP
     ingress:
       internal:
-        host: api.pawaro.eastus.aroapp.io
+        host: api.apps.pawaro.eastus.aroapp.io
         tls:
           enabled: true
           secretName: ""
