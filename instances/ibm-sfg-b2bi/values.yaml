@@ -17,7 +17,7 @@ ibm-sfg-prod:
   appResourcesPVC:
     enabled: true
     name: resources
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "resources"
@@ -25,7 +25,7 @@ ibm-sfg-prod:
     size: 100Mi
   appLogsPVC:
     name: logs
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "logs"
@@ -34,7 +34,7 @@ ibm-sfg-prod:
   appDocumentsPVC:
     enabled: true
     name: documents
-    storageClassName: "ibmc-file-gold"
+    storageClassName: "azure-file"
     selector:
       label: "intent"
       value: "documents"
