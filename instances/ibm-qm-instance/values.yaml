@@ -9,4 +9,4 @@ ibm-qm-instance:
       license: L-APIG-BYHCL7
       use: Development
     version: 9.2.5.0-r2
-    storageClassName: azure-file
+    storageClassName: standard
