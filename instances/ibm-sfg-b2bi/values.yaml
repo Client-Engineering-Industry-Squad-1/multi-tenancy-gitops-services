@@ -8,7 +8,7 @@ ibm-sfg-prod:
     image:
       repository: cp.icr.io/cp/ibm-sfg/sfg
     # Provide the tag value in double quotes
-      tag: 6.1.0.1
+      tag: 6.1.0.0
       pullPolicy: IfNotPresent
       pullSecret: ibm-entitlement-key
   serviceAccount:
@@ -101,7 +101,7 @@ ibm-sfg-prod:
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 2
+    replicaCount: 3
 
     resources:
       limits:
@@ -177,7 +177,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 2
+    replicaCount: 3
     resources:
       limits:
         cpu: 4000m
@@ -233,7 +233,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    replicaCount: 2
+    replicaCount: 3
     frontendService:
       type: ClusterIP
       ports:
