@@ -4,6 +4,7 @@ metadata:
   namespace: tools
   annotations:
     argocd.argoproj.io/sync-wave: "285"
+    # we need to fix the syn wave to be less than sterling-deployment
   name: "ibm-b2bi-psp"
   labels:
     app: "ibm-b2bi-psp"
