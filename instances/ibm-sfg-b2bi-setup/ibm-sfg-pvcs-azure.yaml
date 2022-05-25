@@ -9,7 +9,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 500Mi
+      storage: 1Gi
   storageClassName: standard
   volumeMode: Filesystem
 ---
@@ -24,7 +24,7 @@ spec:
     - ReadWriteMany
   resources:
     requests:
-      storage: 500Mi
+      storage: 1Gi
   storageClassName: standard
   volumeMode: Filesystem
 ---
@@ -39,6 +39,6 @@ spec:
     - ReadOnlyMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 1Gi
   storageClassName: standard
   volumeMode: Filesystem
