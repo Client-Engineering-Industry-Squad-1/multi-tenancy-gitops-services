@@ -17,7 +17,7 @@ ibm-sfg-prod:
   appResourcesPVC:
     enabled: ${APP_RESOURCES_PVC_ENABLED}
     name: resources
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "resources"
@@ -25,7 +25,7 @@ ibm-sfg-prod:
     size: 100Mi
   appLogsPVC:
     name: logs
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "logs"
@@ -34,7 +34,7 @@ ibm-sfg-prod:
   appDocumentsPVC:
     enabled: ${APP_DOCUMENTS_PVC_ENABLED}
     name: documents
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "documents"
@@ -97,10 +97,11 @@ ibm-sfg-prod:
     # Name of JMS secret if available
     jmsSecret: b2b-jms-secret
     SANDBOX_LAUNCH_CLA2_SERVER: true
+    SANDBOX_tls_version: TLSv1.2
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 1
+    replicaCount: 3
 
     resources:
       limits:
@@ -112,8 +113,8 @@ ibm-sfg-prod:
 
     autoscaling:
       enabled: false
-      minReplicas: 2
-      maxReplicas: 4
+      minReplicas: 3
+      maxReplicas: 5
       targetCPUUtilizationPercentage: 60
 
     frontendService:
@@ -176,7 +177,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 1
+    replicaCount: 3
     resources:
       limits:
         cpu: 4000m
@@ -187,8 +188,8 @@ ibm-sfg-prod:
 
     autoscaling:
       enabled: false
-      minReplicas: 2
-      maxReplicas: 4
+      minReplicas: 3
+      maxReplicas: 5
       targetCPUUtilizationPercentage: 60
 
     frontendService:
@@ -232,7 +233,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    replicaCount: 1
+    replicaCount: 3
     frontendService:
       type: ClusterIP
       ports:

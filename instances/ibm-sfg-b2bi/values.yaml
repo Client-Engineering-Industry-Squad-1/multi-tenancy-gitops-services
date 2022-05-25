@@ -17,7 +17,7 @@ ibm-sfg-prod:
   appResourcesPVC:
     enabled: true
     name: resources
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "resources"
@@ -25,7 +25,7 @@ ibm-sfg-prod:
     size: 100Mi
   appLogsPVC:
     name: logs
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "logs"
@@ -34,7 +34,7 @@ ibm-sfg-prod:
   appDocumentsPVC:
     enabled: true
     name: documents
-    storageClassName: "azure-file"
+    storageClassName: "standard"
     selector:
       label: "intent"
       value: "documents"
@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -73,7 +73,7 @@ ibm-sfg-prod:
     dbPort: 1433
     dbData: B2BIDB
     dbDrivers: mssql-jdbc-10.2.1.jre8.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
