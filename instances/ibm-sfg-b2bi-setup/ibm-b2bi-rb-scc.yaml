@@ -30,5 +30,5 @@ roleRef:
   name: "ibm-b2bi-anyuid-scc"
 subjects:
 - kind: ServiceAccount
-  name: default
+  name: b2bi
   namespace: tools
