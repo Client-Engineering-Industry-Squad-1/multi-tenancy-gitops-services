@@ -97,6 +97,7 @@ ibm-sfg-prod:
     # Name of JMS secret if available
     jmsSecret: b2b-jms-secret
     SANDBOX_LAUNCH_CLA2_SERVER: true
+    SANDBOX_trustServerCertificate: true
     SANDBOX_tls_version: TLSv1.2
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
@@ -152,7 +153,7 @@ ibm-sfg-prod:
         # protocol: TCP
     backendService:
   #    type: NodePort
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: adapter-1
         port: 30201
@@ -208,7 +209,7 @@ ibm-sfg-prod:
         # nodePort: 30200
         # protocol: TCP
     backendService:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
         - name: adapter-1
           port: 30401
