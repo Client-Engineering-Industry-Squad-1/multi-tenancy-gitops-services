@@ -1,9 +1,9 @@
 ibm-qm-instance:
   metadata:
-    name: queuemanager
+    name: ibm-queuemanager-instance
     namespace: tools
   spec:
-    name: queuemanager
+    name: ibm-queuemanager-instance
     license:
       accept: true
       license: L-APIG-BYHCL7
