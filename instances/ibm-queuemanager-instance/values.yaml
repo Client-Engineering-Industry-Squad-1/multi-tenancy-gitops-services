@@ -1,6 +1,6 @@
-ibm-qm-instance:
+ibm-queuemanager-instance:
   metadata:
-    name: ibm-queuemanager-instance
+    name: queuemanager
     namespace: tools
   spec:
     name: ibm-queuemanager-instance
