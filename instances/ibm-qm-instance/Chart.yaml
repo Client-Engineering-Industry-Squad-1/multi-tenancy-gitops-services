@@ -5,6 +5,6 @@ appVersion: "1.16.0"
 type: application
 description: QM - for PEPSICO Project
 dependencies:
-  - name: QueueManager
-    version: 0.1.7
+  - name: queuemanager
+    version: 0.0.1
     repository: https://therayy.github.io/operators-instances/
