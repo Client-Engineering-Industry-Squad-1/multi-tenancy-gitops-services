@@ -1,7 +1,7 @@
 ibm-qm-instance:
   metadata:
     name: ppcmq
-    namespace: tools
+    namespace: dev
   spec:
     name: ppcmq
     license:
