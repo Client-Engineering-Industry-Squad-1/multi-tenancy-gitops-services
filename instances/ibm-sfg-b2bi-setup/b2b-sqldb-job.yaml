@@ -16,7 +16,7 @@ spec:
       - name: "b2bi-azure-sql-create-tables"
         securityContext:
           runAsUser: 1010
-        image: quay.io/ibmtechgarage/b2bi-sql:1.0.2
+        image: quay.io/ibmtechgarage/create-sql-b2bi:1.0.0
         imagePullPolicy: Always
         command: ["bash"]
         args:
