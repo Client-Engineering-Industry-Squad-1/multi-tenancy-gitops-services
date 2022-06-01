@@ -1,9 +1,9 @@
 ibm-qm-instance:
   metadata:
-    name: ppcmq
+    name: QueueManager
     namespace: dev
   spec:
-    name: ppcmq
+    name: QueueManager
     license:
       accept: true
       license: L-APIG-BYHCL7
