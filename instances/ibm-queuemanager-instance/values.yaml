@@ -3,7 +3,7 @@ ibm-queuemanager-instance:
     name: queuemanager
     namespace: tools
   spec:
-    name: ibm-queuemanager-instance
+    name: queuemanager
     license:
       accept: true
       license: L-APIG-BYHCL7
