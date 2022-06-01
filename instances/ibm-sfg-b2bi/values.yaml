@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -73,7 +73,7 @@ ibm-sfg-prod:
     dbPort: 1433
     dbData: B2BIDB
     dbDrivers: mssql-jdbc-10.2.1.jre8.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -89,9 +89,9 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.30.102.181
+    jmsHost: 172.30.36.91
     jmsPort: 9443
-    jmsConnectionNameList: 172.30.102.181(9443)
+    jmsConnectionNameList: 172.30.36.91(9443)
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
