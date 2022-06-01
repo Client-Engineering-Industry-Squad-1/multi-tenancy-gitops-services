@@ -8,7 +8,7 @@ ibm-sfg-prod:
     image:
       repository: cp.icr.io/cp/ibm-sfg/sfg
     # Provide the tag value in double quotes
-      tag: 6.1.0.0
+      tag: 6.1.0.1
       pullPolicy: IfNotPresent
       pullSecret: ibm-entitlement-key
   serviceAccount:
@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -73,7 +73,7 @@ ibm-sfg-prod:
     dbPort: 1433
     dbData: B2BIDB
     dbDrivers: mssql-jdbc-10.2.1.jre8.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -116,7 +116,7 @@ ibm-sfg-prod:
         memory: 4Gi
 
     autoscaling:
-      enabled: false
+      enabled: true
       minReplicas: 3
       maxReplicas: 5
       targetCPUUtilizationPercentage: 60
@@ -156,7 +156,7 @@ ibm-sfg-prod:
         # protocol: TCP
     backendService:
   #    type: NodePort
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: adapter-1
         port: 30201
@@ -191,7 +191,7 @@ ibm-sfg-prod:
         memory: 4Gi
 
     autoscaling:
-      enabled: false
+      enabled: true
       minReplicas: 3
       maxReplicas: 5
       targetCPUUtilizationPercentage: 60
@@ -212,7 +212,7 @@ ibm-sfg-prod:
         # nodePort: 30200
         # protocol: TCP
     backendService:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
         - name: adapter-1
           port: 30401
