@@ -8,5 +8,5 @@ ibm-qm-instance:
       accept: true
       license: L-APIG-BYHCL7
       use: Development
-    version: 9.2.5.0-r2
+    version: 9.2.5.0-r1
     storageClassName: standard
