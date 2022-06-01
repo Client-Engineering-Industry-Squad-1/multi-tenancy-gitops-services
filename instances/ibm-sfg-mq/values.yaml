@@ -12,4 +12,4 @@ ibm-sfg-mq:
   image:
     repository: ibmcom/mq
     pullPolicy: IfNotPresent
-  storageClassName: azure-file
+  storageClassName: standard
