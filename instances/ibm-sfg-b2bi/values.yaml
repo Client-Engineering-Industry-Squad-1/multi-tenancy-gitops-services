@@ -89,9 +89,9 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.30.233.188
+    jmsHost: 172.30.178.0
     jmsPort: 1414
-    jmsConnectionNameList: 172.30.233.188(1414)
+    jmsConnectionNameList: 172.30.178.0(1414)
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
