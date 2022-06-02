@@ -14,8 +14,8 @@ DBHOST=${DBHOST:-"pepsi-b2bi-poc-sql1.database.windows.net"}
 DBPORT=${DBPORT:-"1433"}
 DBDATA=${DBDATA:-"B2BIDB"}
 DBCREATESCHEMA=${DBCREATESCHEMA:-"true"}
-JMSHOST=$(oc get svc queuemanager-ibm-mq -n tools -o jsonpath='{ .spec.clusterIP}')
-JMSPORT=$(oc get svc queuemanager-ibm-mq -n tools -o jsonpath='{ .spec.ports[1].port}')
+JMSHOST=$(oc get svc ibm-queuemanager-instance-ibm-mq -n tools -o jsonpath='{ .spec.clusterIP}')
+JMSPORT=$(oc get svc ibm-queuemanager-instance-ibm-mq -n tools -o jsonpath='{ .spec.ports[1].port}')
 JMSCONNECTIONNAMELIST="$JMSHOST($JMSPORT)"
 JSMCHANNEL=${JSMCHANNEL:-"DEV.APP.SVRCONN"}
 INGRESS_INTERNAL_HOST_ASI="asi."$(oc get ingress.config.openshift.io cluster -o jsonpath='{ .spec.domain }')
