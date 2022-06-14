@@ -105,7 +105,7 @@ ibm-sfg-prod:
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 3
+    replicaCount: 1
 
     resources:
       limits:
@@ -181,7 +181,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 3
+    replicaCount: 1
     resources:
       limits:
         cpu: 4000m
@@ -237,7 +237,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    replicaCount: 3
+    replicaCount: 1
     frontendService:
       type: ClusterIP
       ports:
