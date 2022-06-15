@@ -5,7 +5,7 @@ generatorOptions:
   annotations:
     argocd.argoproj.io/sync-wave: '200'
 configMapGenerator:
-- name: my-configmap
+- name: msqsc-configmap-inst
   behavior: create
   files:
-  - msqsc-configmap.yaml
+  - msqsc-configmap-inst.yaml
