@@ -1,11 +1,3 @@
 resources:
 - ./ibm-queuemanager-instance.yaml
-# - ./msqsc-configmap.yaml
-generatorOptions:
-  annotations:
-    argocd.argoproj.io/sync-wave: '200'
-configMapGenerator:
-- name: msqsc-configmap-inst
-  behavior: create
-  files:
-  - msqsc-configmap-inst.yaml
+- ./msqsc-configmap-inst.yaml

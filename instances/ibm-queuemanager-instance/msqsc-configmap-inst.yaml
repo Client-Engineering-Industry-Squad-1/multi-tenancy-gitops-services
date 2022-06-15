@@ -1,3 +1,4 @@
+apiVersion: v1
 data:
   static-definitions.mqsc: |
     DEFINE QLOCAL(DEV.QUEUE.1) BOQNAME(DEV.QUEUE.1.BOQ) BOTHRESH(3) REPLACE
@@ -10,3 +11,8 @@ data:
     * DEFINE CHANNEL('MONITORING_CHL') CHLTYPE(SVRCONN)
     * SET CHLAUTH(MONITORING_CHL) TYPE(BLOCKUSER) USERLIST(NOBODY)
     REFRESH SECURITY TYPE(CONNAUTH)
+kind: ConfigMap
+metadata:
+  name: mqsc-configmap-inst
+  annotations:
+    argocd.argoproj.io/sync-wave: '200'
