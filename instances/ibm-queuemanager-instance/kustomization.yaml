@@ -1,6 +1,6 @@
 resources:
 - ./ibm-queuemanager-instance.yaml
-- ./msqsc-configmap-inst.yaml
+- ./mqcm.yaml
 # generatorOptions:
 #   annotations:
 #     argocd.argoproj.io/sync-wave: '200'

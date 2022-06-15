@@ -13,7 +13,6 @@ data:
     REFRESH SECURITY TYPE(CONNAUTH)
 kind: ConfigMap
 metadata:
-  name: mqsc-configmap-inst
-  namespace: openshift-gitops
+  name: mqcm
   annotations:
     argocd.argoproj.io/sync-wave: '200'
