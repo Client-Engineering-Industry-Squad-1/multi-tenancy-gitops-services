@@ -1,0 +1,45 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  namespace: tools
+  annotations:
+    argocd.argoproj.io/sync-wave: "285"
+    # we need to fix the syn wave to be less than sterling-deployment
+  name: "ibm-lightwell-psp"
+  labels:
+    app: "ibm-lightwell-psp"
+spec:
+  template:
+    spec:
+      serviceAccountName: b2bi
+      containers:
+      - name: "lightwell-sqldb"
+        securityContext:
+          runAsUser: 1010
+        image: quay.io/ibmtechgarage/lightwell-sql:1.0.0
+        imagePullPolicy: Always
+        command: ["bash"]
+        args:
+          - "-c"
+          - "./lightwell-sql.sh"
+        env:
+          - name: DB_NAME
+            value: "FW"
+          - name: DB_SERVER_HOST
+            value: "pepsi-b2bi-poc-sql1.database.windows.net"
+          - name: DB_PORT
+            value: "1433"
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: b2b-db-secret
+                key: DB_USER
+                optional: false
+          - name: DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: b2b-db-secret
+                key: DB_PASSWORD
+                optional: false
+      restartPolicy: Never
+  backoffLimit: 4

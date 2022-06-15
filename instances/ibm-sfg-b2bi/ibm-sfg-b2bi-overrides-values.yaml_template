@@ -105,7 +105,7 @@ ibm-sfg-prod:
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 3
+    replicaCount: 2
 
     resources:
       limits:
@@ -148,12 +148,12 @@ ibm-sfg-prod:
           targetPort: soassl
           nodePort: 30003
           protocol: TCP
-      extraPorts: []
-        #-name: http-1
-        # port: 46000
-        # targetPort: http
-        # nodePort: 30100
-        # protocol: TCP
+      extraPorts:
+        - name: lwfw-soap
+          port: 5580
+          targetPort: 5580
+          nodePort: 30005
+          protocol: TCP
     backendService:
   #    type: NodePort
       type: LoadBalancer
@@ -181,7 +181,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 3
+    replicaCount: 2
     resources:
       limits:
         cpu: 4000m
@@ -237,7 +237,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    replicaCount: 3
+    replicaCount: 2
     frontendService:
       type: ClusterIP
       ports:
