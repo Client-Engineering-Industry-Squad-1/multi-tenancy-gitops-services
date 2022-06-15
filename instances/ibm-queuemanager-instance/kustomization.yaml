@@ -4,9 +4,10 @@ resources:
 # generatorOptions:
 #   annotations:
 #     argocd.argoproj.io/sync-wave: '200'
-#   name: msqsc-configmap-inst
+#   name: mqcm
+#   namespace: tools
 # configMapGenerator:
-# - name: msqsc-configmap-inst
+# - name: mqcm
 #   behavior: create
 #   files:
-#   - msqsc-configmap-inst.yaml
+#   - mqcm.yaml
