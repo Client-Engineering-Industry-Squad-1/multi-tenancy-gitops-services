@@ -42,7 +42,7 @@ spec:
       - configMap:
           items:
             - static-definitions.mqsc
-          name: mqsc-configmap
+          name: my-configmap
     logFormat: Basic
     availability:
       type: SingleInstance
