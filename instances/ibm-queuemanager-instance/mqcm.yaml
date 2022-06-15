@@ -16,3 +16,4 @@ metadata:
   name: mqcm
   annotations:
     argocd.argoproj.io/sync-wave: '200'
+  namespace: tools
