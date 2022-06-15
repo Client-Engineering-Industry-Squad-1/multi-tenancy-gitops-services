@@ -4,7 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '220'
   name: qm-inst-svc
-  namespace: tools
+  namespace: sftp
 spec:
   license:
     accept: true
