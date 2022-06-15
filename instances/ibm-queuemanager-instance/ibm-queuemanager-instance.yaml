@@ -3,7 +3,7 @@ kind: QueueManager
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: '220'
-  name: qm-inst-services
+  name: qm-inst-svc
   namespace: tools
 spec:
   license:
