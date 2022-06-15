@@ -52,7 +52,7 @@ spec:
     storage:
       defaultClass: standard
       persistedData:
-        enabled: false
+        enabled: true
       queueManager:
         class: standard
         size: 2Gi
