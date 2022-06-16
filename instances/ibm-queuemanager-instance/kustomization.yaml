@@ -10,4 +10,4 @@ configMapGenerator:
 - name: mqcm
   behavior: build
   files:
-  - mqcm.yaml
+  - static-definitions.mqsc
