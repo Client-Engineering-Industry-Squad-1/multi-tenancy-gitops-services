@@ -1,13 +1,13 @@
 resources:
 - ./ibm-queuemanager-instance.yaml
-- ./mqcm.yaml
-# generatorOptions:
-#   annotations:
-#     argocd.argoproj.io/sync-wave: '200'
-#   name: mqcm
-#   namespace: tools
-# configMapGenerator:
-# - name: mqcm
-#   behavior: create
-#   files:
-#   - mqcm.yaml
+# - ./mqcm.yaml
+generatorOptions:
+  annotations:
+    argocd.argoproj.io/sync-wave: '200'
+  name: mqcm
+  namespace: tools
+configMapGenerator:
+- name: mqcm
+  behavior: create
+  files:
+  - mqcm.yaml
