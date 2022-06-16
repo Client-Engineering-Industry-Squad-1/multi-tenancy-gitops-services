@@ -1,5 +1,3 @@
-data:
-  static-definitions.mqsc: |
     DEFINE QLOCAL(DEV.QUEUE.1) BOQNAME(DEV.QUEUE.1.BOQ) BOTHRESH(3) REPLACE
     DEFINE QLOCAL(DEV.QUEUE.1.BOQ) REPLACE
     * Use a different dead letter queue, for undeliverable messages
