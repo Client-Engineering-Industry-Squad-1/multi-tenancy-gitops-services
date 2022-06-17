@@ -10,9 +10,9 @@ APP_DOCUMENTS_PVC_ENABLED=${APP_DOCUMENTS_PVC_ENABLED:-"true"}
 DATASETUP_ENABLED=${DATASETUP_ENABLED:-"true"}
 DBVENDOR=${DBVENDOR:-"mssql"} 
 DBDRIVERS=${DBDRIVERS:-"mssql-jdbc-10.2.1.jre8.jar"} 
-DBHOST=${DBHOST:-"pepsi-b2bi-poc-sql1.database.windows.net"}
+DBHOST=${DBHOST:-"test-aro-jm-22-sql.database.windows.net"}
 DBPORT=${DBPORT:-"1433"}
-DBDATA=${DBDATA:-"B2BIDB"}
+DBDATA=${DBDATA:-"test-aro-jm-22-b2bi-db"}
 DBCREATESCHEMA=${DBCREATESCHEMA:-"true"}
 JMSHOST=$(oc get svc ibm-queuemanager-instance-ibm-mq -n tools -o jsonpath='{ .spec.clusterIP}')
 JMSPORT=$(oc get svc ibm-queuemanager-instance-ibm-mq -n tools -o jsonpath='{ .spec.ports[1].port}')
@@ -24,7 +24,7 @@ INGRESS_INTERNAL_HOST_API="api."$(oc get ingress.config.openshift.io cluster -o 
 PURGE_IMG_REPO=${PURGE_IMG_REPO:-"cp.icr.io/cp/ibm-sfg/sfg-purge"}
 PURGE_IMG_TAG=${PURGE_IMG_TAG:-"6.1.0.0"}
 PURGE_PULLSECRET=${PURGE_PULLSECRET:-"ibm-entitlement-key"}
-
+msqlHostNameInCertificate=${msqlHostNameInCertificate:-"test-aro-jm-22-sql.database.windows.net"}
 # Create Kubernetes yaml
 ( echo "cat <<EOF" ; cat ibm-sfg-b2bi-overrides-values.yaml_template ;) | \
 SFG_REPO=${SFG_REPO} \
@@ -49,4 +49,5 @@ INGRESS_INTERNAL_HOST_API=${INGRESS_INTERNAL_HOST_API} \
 PURGE_IMG_REPO=${PURGE_IMG_REPO} \
 PURGE_IMG_TAG=${PURGE_IMG_TAG} \
 PURGE_PULLSECRET=${PURGE_PULLSECRET} \
+msqlHostNameInCertificate=${msqlHostNameInCertificate} \
 sh > values.yaml
