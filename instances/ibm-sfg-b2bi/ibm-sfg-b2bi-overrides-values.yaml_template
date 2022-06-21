@@ -100,7 +100,7 @@ ibm-sfg-prod:
     SANDBOX_trustServerCertificate: true
     SANDBOX_tls_version: TLSv1.2
     tlsVersion: TLSv1.2
-    msqlHostNameInCertificate: pepsi-b2bi-poc-sql1.database.windows.net
+    msqlHostNameInCertificate: ${msqlHostNameInCertificate}
     mssqlTrustServerCertificate: true
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
