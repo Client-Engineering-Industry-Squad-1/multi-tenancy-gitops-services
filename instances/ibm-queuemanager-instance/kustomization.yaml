@@ -1,13 +1,13 @@
 resources:
 - ./ibm-queuemanager-instance.yaml
-# - ./mqcm.yaml
+- ./mqcm.yaml
 
-generatorOptions:
-  disableNameSuffixHash: true
-  annotations:
-    argocd.argoproj.io/sync-wave: '200'
-configMapGenerator:
-- name: mqcm
-  behavior: build
-  files:
-  - static-definitions.mqsc
+# generatorOptions:
+#   disableNameSuffixHash: true
+#   annotations:
+#     argocd.argoproj.io/sync-wave: '200'
+# configMapGenerator:
+# - name: mqconfig
+#   behavior: build
+#   files:
+#   - static-definitions.mqsc

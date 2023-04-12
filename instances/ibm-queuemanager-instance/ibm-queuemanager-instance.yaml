@@ -2,8 +2,8 @@ apiVersion: mq.ibm.com/v1beta1
 kind: QueueManager
 metadata:
   annotations:
-    argocd.argoproj.io/sync-wave: '220'
-  name: qm-inst-svc
+    argocd.argoproj.io/sync-wave: '320'
+  name: ibm-queuemanager-instance
   namespace: tools
 spec:
   license:
@@ -29,7 +29,7 @@ spec:
       timeoutSeconds: 3
     route:
       enabled: true
-    name: QM3
+    name: QM5
     livenessProbe:
       failureThreshold: 1
       initialDelaySeconds: 90
@@ -52,7 +52,7 @@ spec:
     storage:
       defaultClass: managed-nfs-storage
       persistedData:
-        enabled: true
+        enabled: false
       queueManager:
         class: managed-nfs-storage
         size: 2Gi
