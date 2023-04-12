@@ -12,7 +12,7 @@ ibm-sfg-db2:
   image:
     repository: ibmcom/db2:11.5.7.0
     pullPolicy: IfNotPresent
-  storageClassName: azure-file
+  storageClassName: managed-nfs-storage
 
   service:
     name: db2-lb
