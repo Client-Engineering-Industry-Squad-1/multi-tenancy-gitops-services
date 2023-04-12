@@ -50,11 +50,11 @@ spec:
     image: >-
       docker.io/ibmcom/mq@sha256:ab781c17c563c216002f3abb737aebcbe1e586d0b8c1dab1a2da8294e6edcc2c
     storage:
-      defaultClass: standard
+      defaultClass: managed-nfs-storage
       persistedData:
         enabled: true
       queueManager:
-        class: standard
+        class: managed-nfs-storage
         size: 2Gi
         type: persistent-claim
       recoveryLogs:
