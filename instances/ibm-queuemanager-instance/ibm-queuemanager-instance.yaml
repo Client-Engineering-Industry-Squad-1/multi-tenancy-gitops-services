@@ -61,6 +61,9 @@ spec:
         enabled: false
   securityContext:
     initVolumeAsRoot: false
+    supplementalGroups:
+      - 99
+      - 65534
   template:
     pod:
       containers:
