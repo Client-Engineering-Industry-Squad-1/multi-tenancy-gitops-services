@@ -13,7 +13,7 @@ SEALED_SECRET_CONTOLLER_NAME=${SEALED_SECRET_CONTOLLER_NAME:-sealed-secrets}
 
 # Create Kubernetes Secret yaml
 oc create secret generic b2b-db-secret --type=Opaque \
---from-literal=DB_USER=dbadmin \
+--from-literal=DB_USER=sa \
 --from-literal=DB_PASSWORD=${B2B_DB_SECRET} \
 --dry-run=client -o yaml > delete-b2b-db-secret.yaml
 
