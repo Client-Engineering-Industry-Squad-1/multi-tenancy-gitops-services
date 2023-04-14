@@ -2,12 +2,7 @@
 ---
 # Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/ingress.yaml
 # (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
-
-
-
-
-
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: "sfg-ingress"
