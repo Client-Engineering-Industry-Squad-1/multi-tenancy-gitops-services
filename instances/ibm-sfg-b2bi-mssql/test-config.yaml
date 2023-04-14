@@ -32,7 +32,7 @@ spec:
   volumes:
     - name: resources
       persistentVolumeClaim:
-        claimName: "sfg-resources"
+        claimName: "ibm-sfg-b2bi-sfg-resources"
   containers:
   - name: "test-url"
     resources:

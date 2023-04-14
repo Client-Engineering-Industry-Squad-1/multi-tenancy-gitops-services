@@ -60,13 +60,13 @@ spec:
       volumes:
         - name: resources
           persistentVolumeClaim:
-            claimName: "sfg-resources"   
+            claimName: "ibm-sfg-b2bi-sfg-resources"   
         - name: logs
           persistentVolumeClaim:
-            claimName: "sfg-logs"
+            claimName: "ibm-sfg-b2bi-sfg-logs"
         - name: "documents"
           persistentVolumeClaim:
-            claimName: "sfg-documents"
+            claimName: "ibm-sfg-b2bi-sfg-documents"
         - name: configmap-resources-volume
           configMap:
            name: "sfg-config"

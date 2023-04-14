@@ -81,18 +81,18 @@ spec:
              echo "cleaning up config map..."
              kubectl delete configmap -n tools "sfg-config-dummy-property"
           fi
-          if kubectl get pvc -n tools "sfg-resources" ; then\
+          if kubectl get pvc -n tools "ibm-sfg-b2bi-sfg-resources" ; then\
              echo "cleaning up resources pvc..."
-             kubectl delete pvc -n tools "sfg-resources"
+             kubectl delete pvc -n tools "ibm-sfg-b2bi-sfg-resources"
           fi
-          if kubectl get pvc -n tools "sfg-logs" ; then
+          if kubectl get pvc -n tools "ibm-sfg-b2bi-sfg-logs" ; then
              echo "cleaning up logs pvc..."
-             kubectl delete pvc -n tools "sfg-logs"
+             kubectl delete pvc -n tools "ibm-sfg-b2bi-sfg-logs"
           fi
           
-          if kubectl get pvc -n tools "sfg-documents" ; then
+          if kubectl get pvc -n tools "ibm-sfg-b2bi-sfg-documents" ; then
              echo "cleaning up documents pvc..."
-             kubectl delete pvc -n tools "sfg-documents"
+             kubectl delete pvc -n tools "ibm-sfg-b2bi-sfg-documents"
           fi
           
           
