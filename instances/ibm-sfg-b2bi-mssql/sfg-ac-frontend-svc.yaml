@@ -11,8 +11,8 @@ metadata:
     app.kubernetes.io/name: "sfg"
     helm.sh/chart: "ibm-sfg-prod"
     app.kubernetes.io/managed-by: "Helm"
-    app.kubernetes.io/instance: "release-name"
-    release: "release-name"
+    
+    
     app.kubernetes.io/component: "ac-frontend-svc"
 
 spec:
@@ -26,6 +26,6 @@ spec:
     app.kubernetes.io/name: "sfg"
     helm.sh/chart: "ibm-sfg-prod"
     app.kubernetes.io/managed-by: "Helm"
-    app.kubernetes.io/instance: "release-name"
-    release: "release-name"
+    
+    
     app.kubernetes.io/component: "ac-server"

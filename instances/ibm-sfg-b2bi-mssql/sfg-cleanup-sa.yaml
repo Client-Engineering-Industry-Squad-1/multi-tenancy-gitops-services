@@ -17,8 +17,8 @@ metadata:
     app.kubernetes.io/name: "sfg"
     helm.sh/chart: "ibm-sfg-prod"
     app.kubernetes.io/managed-by: "Helm"
-    app.kubernetes.io/instance: "release-name"
-    release: "release-name"
+    
+    
     app.kubernetes.io/component: "cleanup-sa"
   annotations:
         "helm.sh/hook": "pre-upgrade, post-delete"

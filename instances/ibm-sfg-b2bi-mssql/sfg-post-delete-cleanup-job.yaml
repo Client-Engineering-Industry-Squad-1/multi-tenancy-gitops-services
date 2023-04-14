@@ -11,8 +11,8 @@ metadata:
     app.kubernetes.io/name: "sfg"
     helm.sh/chart: "ibm-sfg-prod"
     app.kubernetes.io/managed-by: "Helm"
-    app.kubernetes.io/instance: "release-name"
-    release: "release-name"
+    
+    
     app.kubernetes.io/component: "post-delete-cleanup-job"
   annotations:
     "helm.sh/hook": post-delete
@@ -28,8 +28,8 @@ spec:
         app.kubernetes.io/name: "sfg"
         helm.sh/chart: "ibm-sfg-prod"
         app.kubernetes.io/managed-by: "Helm"
-        app.kubernetes.io/instance: "release-name"
-        release: "release-name"
+        
+        
         app.kubernetes.io/component: "post-delete-cleanup-job"
       annotations:        
         productID: "0acf190850514574bb48a3d0ac0341e6"

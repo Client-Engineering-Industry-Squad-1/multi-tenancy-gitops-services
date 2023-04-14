@@ -13,8 +13,8 @@ metadata:
     app.kubernetes.io/name: "sfg"
     helm.sh/chart: "ibm-sfg-prod"
     app.kubernetes.io/managed-by: "Helm"
-    app.kubernetes.io/instance: "release-name"
-    release: "release-name"
+    
+    
     app.kubernetes.io/component: "asi-server"
 spec:
   replicas: 2
@@ -23,8 +23,8 @@ spec:
       app.kubernetes.io/name: "sfg"
       helm.sh/chart: "ibm-sfg-prod"
       app.kubernetes.io/managed-by: "Helm"
-      app.kubernetes.io/instance: "release-name"
-      release: "release-name"
+      
+      
       app.kubernetes.io/component: "asi-server"
   serviceName: "sfg-cluster-svc"
   template:
@@ -34,8 +34,8 @@ spec:
         app.kubernetes.io/name: "sfg"
         helm.sh/chart: "ibm-sfg-prod"
         app.kubernetes.io/managed-by: "Helm"
-        app.kubernetes.io/instance: "release-name"
-        release: "release-name"
+        
+        
         app.kubernetes.io/component: "asi-server"          
       annotations:        
         productID: "0acf190850514574bb48a3d0ac0341e6"
