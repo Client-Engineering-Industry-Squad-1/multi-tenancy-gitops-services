@@ -14,7 +14,6 @@ metadata:
     release: "release-name"
     app.kubernetes.io/component: "ingress"
   annotations:
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/secure-backends: "true"
     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
     nginx.ingress.kubernetes.io/affinity: "cookie"
@@ -46,65 +45,110 @@ spec:
       http:
         paths:
           - path: /*
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /dashboard
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /filegateway
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /myfilegateway
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port:
+                  name: http
           - path: /myfg
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /mailbox
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /queueWatch
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /wsdl
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /soap
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /soap-new
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /soap-sync
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
           - path: /soap-sync-new
+            pathType: Prefix
             backend:
-              serviceName: "sfg-asi-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-asi-frontend-svc"
+                port: 
+                  name: http
     - host: "api.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
       http:
         paths:
           - path: /*
+            pathType: Prefix
             backend:
-              serviceName: "sfg-api-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-api-frontend-svc"
+                port: 
+                  name: http
           - path: /B2BAPIs/svc
+            pathType: Prefix
             backend:
-              serviceName: "sfg-api-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-api-frontend-svc"
+                port: 
+                  name: http
           - path: /propertyUI/app
+            pathType: Prefix
             backend:
-              serviceName: "sfg-api-frontend-svc"
-              servicePort: http
+              service:
+                name: "sfg-api-frontend-svc"
+                port: 
+                  name: http
