@@ -1,0 +1,543 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/comfigmap-properties.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "sfg-config-property"
+  annotations:
+        # This is what defines this resource as a hook. Without this line, the
+        # job is considered part of the release.
+        "helm.sh/hook": "pre-install, pre-upgrade"
+        "helm.sh/hook-weight": "0"
+        #"helm.sh/hook-delete-policy": "before-hook-creation"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "config-property"
+data:
+  ac-tuning.properties: "############################################################################\n#
+    Licensed Materials - Property of IBM\n#\n# (C) Copyright IBM Corp. 2010, 2011 All
+    Rights Reserved.\n#\n# US Government Users Restricted Rights - Use, duplication
+    or disclosure\n# restricted by GSA ADP Schedule Contract with IBM Corp.\n############################################################################\n##
+    PROPERTY_FILE_NAME\n## tuningDefaults.properties (for initialization and operations)\n##
+    PROPERTY_FILE_DESCRIPTION\n##\n\n## PROPERTY_START\n## PROPERTY_NAME: NUM_CONTAINER_NODES
+    \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## Number of container nodes.
+    \n## (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: PROCESSORS \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    Number of processor cores in the system, where each core is an \n## independent
+    processing engine.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: TUNING_PROPS_UPDATED
+    \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n##\n## Valid values:\n## TRUE:\n##
+    FALSE: (default)\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: GLOBAL_THREADLIMIT
+    \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## Global threads.\n## (For
+    property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MIN_TRANS_POOL \n## PROPERTY_GROUP: Transaction
+    pool\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MAX_TRANS_POOL \n## PROPERTY_GROUP: Transaction pool\n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    MIN_NONTRANS_POOL \n## PROPERTY_GROUP: Non-Transaction Pool\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MAX_NONTRANS_POOL
+    \n## PROPERTY_GROUP: Non-Transaction Pool\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: [operating system]-64.INIT_HEAP_CONTAINER \n##
+    PROPERTY_GROUP: JVM Memory Settings for Container Nodes\n## PROPERTY_TYPE: Integer\n##
+    UI_LABEL: Initial Heap Size (MB)\n## PROPERTY_DESCRIPTION\n## Initial heap - 64
+    bit container.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating system]-64.MAX_HEAP_CONTAINER
+    \n## PROPERTY_GROUP: JVM Memory Settings for Container Nodes\n## PROPERTY_TYPE:
+    Integer\n## UI_LABEL: Maximum Heap Size (MB)\n## PROPERTY_DESCRIPTION\n## Maximum
+    heap - 64 bit container.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating
+    system]-64.MAX_PERM_SIZE_CONTAINER \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Maximum
+    Permanent Generation Size (MB)\n## PROPERTY_DESCRIPTION\n## Maximum permanent generation
+    size - 64 bit.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating system]-64.STATIC_STACK_CONTAINER
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Thread Stack Size (KB)\n## PROPERTY_DESCRIPTION\n##
+    Controls the maximum Java stack size for any thread in a 64-bit environment (KB).\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: ENABLE_VERBOSE_GC_CONTAINER \n## PROPERTY_GROUP:
+    Heap Dump Container\n## PROPERTY_TYPE: Boolean\n## UI_LABEL: Enable VerboseGC\n##
+    PROPERTY_DESCRIPTION\n## Indicates whether to generate verbose garbage collection
+    data for container JVM.\n## Valid values:\n## true : Generate verbose garbage collection
+    data.\n## false : (default) Disable verbose garbage collection. \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: [operating system]-64.SURVIVOR_RATIO_CONTAINER \n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n## Survivor ratio container.\n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MULTICAST_INTERVAL                   \n## PROPERTY_GROUP: BP Queue
+    and Cluster                \n## PROPERTY_TYPE: Integer              \n## PROPERTY_DESCRIPTION
+    \               \n## Broadcast interval (in milliseconds).               \n## (For
+    property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END
+    \               \n                       \n## PROPERTY_START              \n## PROPERTY_NAME:
+    DISTRIBUTION_ON_WEIGHT               \n## PROPERTY_GROUP: BP Queue and Cluster                \n##
+    PROPERTY_TYPE: Boolean              \n## PROPERTY_DESCRIPTION                \n##
+    \            \n## Valid values:               \n## true :              \n## false
+    : (default)                   \n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)   \n       \n## PROPERTY_END                \n \n## PROPERTY_START
+    \             \n## PROPERTY_NAME: DISTRIBUTION_CACHE_MIN               \n## PROPERTY_GROUP:
+    BP Queue and Cluster                \n## PROPERTY_TYPE: Integer              \n##
+    PROPERTY_DESCRIPTION                \n## Minimum distribution cache.                 \n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n##
+    PROPERTY_END                \n                       \n## PROPERTY_START              \n##
+    PROPERTY_NAME: SWITCH_INTERVAL              \n## PROPERTY_GROUP: BP Queue and Cluster
+    \               \n## PROPERTY_TYPE: Integer              \n## PROPERTY_DESCRIPTION
+    \               \n## Switch interval (in milliseconds).                  \n## (For
+    property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END
+    \               \n                       \n## PROPERTY_START              \n## PROPERTY_NAME:
+    MAX_SHADOW_CACHE_SIZE                \n## PROPERTY_GROUP: BP Queue and Cluster\n##
+    PROPERTY_TYPE: Integer              \n## PROPERTY_DESCRIPTION                \n##
+    Maximum shadow cache size (MB).             \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)   \n       \n## PROPERTY_END                \n                       \n##
+    PROPERTY_START              \n## PROPERTY_NAME: USE_SHADOW_CACHE             \n##
+    PROPERTY_GROUP: BP Queue and Cluster                \n## PROPERTY_TYPE: Boolean
+    \             \n## PROPERTY_DESCRIPTION                \n## Indicates whether to
+    use shadow cache.              \n## Valid values:               \n## true : (default)
+    Enable shadow cache.               \n## false : Enable shadow cache.                \n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n##
+    PROPERTY_END                \n                       \n## PROPERTY_START              \n##
+    PROPERTY_NAME: WF_IN_TRANSIT_TIMEOUT_LIST                   \n## PROPERTY_GROUP:
+    BP Queue and Cluster\n## PROPERTY_TYPE: Integer              \n## PROPERTY_DESCRIPTION
+    \               \n## Workflow in transit list (in milliseconds).                 \n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n##
+    PROPERTY_END                \n                       \n## PROPERTY_START\n## PROPERTY_NAME:
+    MAP_CACHE \n## PROPERTY_TYPE: String\n## PROPERTY_DESCRIPTION\n## Translation map
+    cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file) \n##
+    PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: ENVELOPE_CACHE \n## PROPERTY_TYPE:
+    String\n## PROPERTY_DESCRIPTION\n## Envelope cache.\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START
+    \  \t\t \n## PROPERTY_NAME: BP_SIZE \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    The average business process size in bytes.  This size  \n## is bigger on Windows.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: JMS_LISTNERS \n## PROPERTY_TYPE: String\n## PROPERTY_DESCRIPTION\n##
+    Queue threads.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: JVM_ARGS_SUFFIX_CONTAINER
+    \n## PROPERTY_GROUP: JVM Parameters for Container Nodes Page \n## PROPERTY_TYPE:
+    String\n## UI_LABEL: JVM Arguments Suffix\n## PROPERTY_DESCRIPTION\n## JVM arguments
+    suffix container.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: JVM_ARGS_PREFIX_CONTAINER
+    \n## PROPERTY_GROUP: JVM Parameters for Container Nodes Page \n## PROPERTY_TYPE:
+    String\n## UI_LABEL: JVM Arguments Prefix\n## PROPERTY_DESCRIPTION\n## JVM arguments
+    prefix container.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: ENABLE_HEAP_DUMP_OOM_CONTAINER\n##
+    PROPERTY_GROUP: JVM Parameters for Container Page \n## PROPERTY_TYPE: Boolean\n##
+    UI_LABEL: Enable Heap Dump on Out of Memory\n## PROPERTY_DESCRIPTION\n## Indicates
+    if you want to generate a heap dump when the container JVM\n## encounters an out
+    of memory error.\n## Valid values:\n## true :  (default) Generate a heap dump.\n##
+    false : Do not generate a heap dump.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    ENABLE_HEAP_DUMP_SGQTCRTLBRK_CONTAINER\n## PROPERTY_GROUP: JVM Parameters for Container
+    Page \n## PROPERTY_TYPE: Boolean\n## UI_LABEL: Enable Heap Dump on Sigquit/Ctrl-break\n##
+    PROPERTY_DESCRIPTION\n## Indicates whether to enable the heap dump on Sigquit/Ctrl-break.\n##
+    Valid values:\n## true :  (default) Enable the heap dump.\n## false : Do not enable
+    the heap dump.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: DISTRIBUTION_CACHE_MAX\n##
+    PROPERTY_GROUP: BP Queue Page\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    Maximum distribution cache.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: EDI_CACHE
+    \n## PROPERTY_GROUP: Cache Page \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    EDI cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)
+    \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: tune.[application server].documentInlineSerializationThreshold
+    \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: tune.[application server].jndi.contextpoolsize \n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    [operating system]-64.INIT_AGE_CONTAINER \n## PROPERTY_TYPE: Integer\n## UI_LABEL:
+    Initial Size of New (Nursery) Heap (MB)\n## PROPERTY_DESCRIPTION\n## The initial
+    size of the new heap area allocated to each server JVM.\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: [operating system]-64.MAX_AGE_CONTAINER\n## PROPERTY_TYPE: Integer\n##
+    UI_LABEL: Maximum Size of New (Nursery) Heap (MB)\n## PROPERTY_DESCRIPTION\n## Maximum
+    new age.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)
+    \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: jdbcService.defaultDocumentStorageType\n##
+    PROPERTY_TYPE: String\n## PROPERTY_DESCRIPTION\n## Determines the storage type for
+    document objects constructed without \n## a storageType property.\n## The default
+    value is DB.  \n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MIN_MEMORY_CONTAINER\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEMORY_CONTAINER\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Physical
+    Memory Allocated to Container (MB)\n## PROPERTY_DESCRIPTION\n## \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEMORY_BI\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEMORY_ACTIVEMQ\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MEMORY_SAPADAPTER\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEMORY_CLADAPTER\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEMORY_OPS\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    The memory that is automatically allocated to the ops server\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: IS_DEDUCT_MEM_ACTIVEMQ \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for the Active MQ messaging\n## service
+    from the physical memory allocated to the application.\n## Valid values:\n## true
+    : Allocate memory for Active MQ.\n## false : (default) Do not allocate memory for
+    Active MQ.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)
+    \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: IS_DEDUCT_MEM_BI \n##
+    PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n## Indicates if you want to allocate
+    memory for BI listeners\n## from the physical memory allocated to the application.\n##
+    Valid values:\n## true : Allocate memory for BI listeners.\n## false : (default)
+    Do not allocate memory for BI listeners.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    IS_DEDUCT_MEM_CLADAPTER \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for the command line adapter\n## from the
+    physical memory allocated to the application.\n## Valid values:\n## true : Allocate
+    memory for the command line adapter.\n## false : (default) Do not allocate memory
+    for the command line adapter.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: IS_DEDUCT_MEM_SAPADAPTER
+    \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n## Indicates if you want to
+    allocate memory for the SAP adapter\n## from the physical memory allocated to the
+    application.\n## Valid values:\n## true : Allocate memory for the SAP adapter.\n##
+    false : (default) Do not allocate memory for the SAP adapter.\n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: CONTAINER_MEMORY\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS_EVAL_CONTAINER\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS_EVAL_MYSQL\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEM_PROPS_EVAL_PROCESSORS\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS_EVAL_PROCESSORS_RECALC_EXCLUDES\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_VALUE_ALL\n\nPROCESSORS=2\n\n#Number
+    of container nodes\nNUM_CONTAINER_NODES=1\n\n#BP Queue and Cluster\nMULTICAST_INTERVAL=6000\nDISTRIBUTION_ON_WEIGHT=false\nDISTRIBUTION_CACHE_MAX=5000\nDISTRIBUTION_CACHE_MIN=8\nSWITCH_INTERVAL=180000\nMAX_SHADOW_CACHE_SIZE=100\nUSE_SHADOW_CACHE=true\nWF_IN_TRANSIT_TIMEOUT_LIST=20000\n\n#DB
+    Connection Pools\nMIN_TRANS_POOL=1\nMAX_TRANS_POOL=30\n\nMIN_NONTRANS_POOL=1\nMAX_NONTRANS_POOL=30\n\n#Agent
+    server heap Size\nLinux.AGENT.INIT_HEAP=512\nLinux.AGENT.MAX_HEAP=1024\n\n#Survivor
+    ratio Container\nLinux-64.SURVIVOR_RATIO_CONTAINER=4\n\n#Caches\nMAP_CACHE=100\nENVELOPE_CACHE=500\nEDI_CACHE=100\n\n\n\ntune.websphere.documentInlineSerializationThreshold=102400\ntune.weblogic.documentInlineSerializationThreshold=102400\ntune.noapp.documentInlineSerializationThreshold=102400\ntune.jboss.documentInlineSerializationThreshold=102400\n\ntune.websphere.jndi.contextpoolsize=20\ntune.weblogic.jndi.contextpoolsize=50\ntune.noapp.jndi.contextpoolsize=50\ntune.jboss.jndi.contextpoolsize=50\n\n\nJMS_LISTNERS=8\nBP_SIZE=16384\nGLOBAL_THREADLIMIT=8\n\n#JVM
+    Arguments suffix Container\nJVM_ARGS_SUFFIX_CONTAINER=\n\n#JVM Arguments PREFIX
+    Container\nJVM_ARGS_PREFIX_CONTAINER=\n\n#Minimum Memory values for various JVMs\nMIN_MEMORY_CONTAINER=512\n\nMEMORY_BI=256\nMEMORY_ACTIVEMQ=512\nMEMORY_SAPADAPTER=256\nMEMORY_CLADAPTER=128\nMEMORY_OPS=128\n\nIS_DEDUCT_MEM_ACTIVEMQ=true\nIS_DEDUCT_MEM_BI=true\nIS_DEDUCT_MEM_CLADAPTER=true\nIS_DEDUCT_MEM_SAPADAPTER=true\n\nMEMORY_CONTAINER=512\nLinux-64.MAX_PERM_SIZE_CONTAINER=128\n\n#the
+    below values are in KB\n\nLinux-64.STATIC_STACK_CONTAINER=256\n\nCONTAINER_MEMORY=0\n\nLinux-64.INIT_HEAP_CONTAINER=512\nLinux-64.MAX_HEAP_CONTAINER=512\nENABLE_HEAP_DUMP_OOM_CONTAINER=true\nENABLE_HEAP_DUMP_SGQTCRTLBRK_CONTAINER=true\nENABLE_VERBOSE_GC_CONTAINER=false\nLinux-64.INIT_AGE_CONTAINER=171\nLinux-64.MAX_AGE_CONTAINER=171\njdbcService.defaultDocumentStorageType=DB\nTUNING_PROPS_UPDATED=false\nDummy=Dummy\nMEM_PROPS=1920\nMEM_PROPS_EVAL_CONTAINER=512\nMEM_PROPS_EVAL_MYSQL=128\nMEM_PROPS_EVAL_PROCESSORS=8\nMEM_PROPS_EVAL_JMS_LISTENERS=3\nLinux-64.MEMORY_PER_CONTAINER_AFTER_SPLIT=-2147483648\n"
+  asi-tuning.properties: "############################################################################\n#
+    Licensed Materials - Property of IBM\n#\n# (C) Copyright IBM Corp. 2010, 2011 All
+    Rights Reserved.\n#\n# US Government Users Restricted Rights - Use, duplication
+    or disclosure\n# restricted by GSA ADP Schedule Contract with IBM Corp.\n############################################################################\n##
+    PROPERTY_FILE_NAME\n## tuningDefaults.properties (for initialization and operations)\n##
+    PROPERTY_FILE_DESCRIPTION\n##\n\n## PROPERTY_START\n## PROPERTY_NAME: MEMORY \n##
+    PROPERTY_TYPE: Integer\n## UI_LABEL: Physical memory (MB) allocated to Sterling
+    B2B Integrator\n## PROPERTY_DESCRIPTION\n## Amount of memory allocated for use in
+    processing operations.\n## (For property value, see PROPERTY_VALUE_ALL section at
+    end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: NUM_ASI_NODES
+    \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## Number of ASI nodes. This
+    cannot be changed from the default value of 1,\n## regardless of the number of nodes
+    in the installation.\n## (For property value, see PROPERTY_VALUE_ALL section at
+    end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: PROCESSORS
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Number of Processor Cores\n## PROPERTY_DESCRIPTION\n##
+    Number of processor cores in the system, where each core is an \n## independent
+    processing engine.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: TUNING_PROPS_UPDATED
+    \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n##\n## Valid values:\n## TRUE:\n##
+    FALSE: (default)\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: GLOBAL_THREADLIMIT
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Desired Global Threads\n## PROPERTY_DESCRIPTION\n##
+    Global threads.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MIN_TRANS_POOL \n##
+    PROPERTY_GROUP: Transaction pool\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    \n## (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MAX_TRANS_POOL \n## PROPERTY_GROUP: Transaction
+    pool\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MIN_NONTRANS_POOL \n## PROPERTY_GROUP: Non-Transaction Pool\n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    MAX_NONTRANS_POOL \n## PROPERTY_GROUP: Non-Transaction Pool\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating
+    system]-64.INIT_HEAP \n## PROPERTY_TYPE: String\n## UI_LABEL: Initial Heap Size
+    (MB)\n## PROPERTY_DESCRIPTION\n## The initial size of a Java heap allocated to each
+    server JVM - 64-bit.\n## (For property value, see PROPERTY_VALUE_ALL section at
+    end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating
+    system]-64.MAX_HEAP \n## PROPERTY_TYPE: String\n## UI_LABEL: Maximum Heap Size (MB)\n##
+    PROPERTY_DESCRIPTION\n## Maximum heap - 64-bit.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    [operating system]-64.MAX_PERM_SIZE \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Maximum
+    Permanent Generation Size (MB)\n## PROPERTY_DESCRIPTION\n## Maximum permanent generation
+    size - 64-bit.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [operating system]-64.STATIC_STACK
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Thread Stack Size (KB)\n## PROPERTY_DESCRIPTION\n##
+    Controls the maximum Java stack size for any thread in a 64-bit environment (KB).\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: ENABLE_HEAP_DUMP_OOM \n## PROPERTY_GROUP: Heap
+    Dump\n## PROPERTY_TYPE: Boolean\n## UI_LABEL: Enable Heap Dump on Out of Memory\n##
+    PROPERTY_DESCRIPTION\n## Indicates whether to generate a heap dump when the server
+    JVM\n## encounters an out-of-memory error.\n## Valid values:\n## true : (default)
+    Generate a heap dump. \n## false : Do not generate a heap dump.  \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: ENABLE_HEAP_DUMP_SGQTCRTLBRK \n## PROPERTY_GROUP: Heap Dump\n## PROPERTY_TYPE:
+    Boolean\n## UI_LABEL: Enable Heap Dump on Sigquit/Ctrl-break\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to request a heap dump for the server\n## JVM by using the
+    Sigquit command or by pressing Ctrl+Break \n## for the server JVM.\n## Valid values:\n##
+    true : (default) Request a heap dump. \n## false : Do not request a heap dump.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: ENABLE_VERBOSE_GC \n## PROPERTY_GROUP: Heap Dump\n##
+    PROPERTY_TYPE: Boolean\n## UI_LABEL: Enable VerboseGC\n## PROPERTY_DESCRIPTION\n##
+    Indicates whether to generate verbose garbage collection data for server JVM.\n##
+    Valid values:\n## true : Generate verbose garbage collection data.\n## false : (default)
+    Disable verbose garbage collection. \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    [operating system]-64.SURVIVOR_RATIO \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    Survivor ratio.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: NOAPP.JMS_PAGING_MAX
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Disk cache size (MB) Maximum\n## PROPERTY_DESCRIPTION\n##
+    JMS paging maximum.  This is now the DISK cache size. It is set twice to the memory
+    size of the \n## application.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: NOAPP.JMS_PAGING_HIGH
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: In memory cache size (MB) for small contexts\n##
+    PROPERTY_DESCRIPTION\n## JMS paging high.  The memcache size.\n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: BP_STEPS \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    Number of business process steps executed.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    MULTICAST_INTERVAL                   \n## PROPERTY_GROUP: BP Queue and Cluster                \n##
+    PROPERTY_TYPE: Integer\n## UI_LABEL: Broadcast Interval (ms)              \n## PROPERTY_DESCRIPTION
+    \               \n## Broadcast interval (in milliseconds).               \n## (For
+    property value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END
+    \               \n                       \n## PROPERTY_START              \n## PROPERTY_NAME:
+    DISTRIBUTION_ON_WEIGHT               \n## PROPERTY_GROUP: BP Queue and Cluster                \n##
+    PROPERTY_TYPE: Boolean              \n## PROPERTY_DESCRIPTION                \n##
+    \            \n## Valid values:               \n## true :              \n## false
+    : (default)                   \n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)   \n       \n## PROPERTY_END                \n \n## PROPERTY_START
+    \             \n## PROPERTY_NAME: DISTRIBUTION_CACHE_MIN               \n## PROPERTY_GROUP:
+    BP Queue and Cluster                \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Distribution
+    Cache Minimum              \n## PROPERTY_DESCRIPTION                \n## Minimum
+    distribution cache.                 \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)   \n       \n## PROPERTY_END                \n                       \n##
+    PROPERTY_START              \n## PROPERTY_NAME: SWITCH_INTERVAL              \n##
+    PROPERTY_GROUP: BP Queue and Cluster                \n## PROPERTY_TYPE: Integer
+    \  \n## UI_LABEL: Switch Interval (ms)           \n## PROPERTY_DESCRIPTION                \n##
+    Switch interval (in milliseconds).                  \n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END                \n
+    \                      \n## PROPERTY_START              \n## PROPERTY_NAME: MAX_SHADOW_CACHE_SIZE
+    \               \n## PROPERTY_GROUP: BP Queue and Cluster\n## PROPERTY_TYPE: Integer\n##
+    UI_LABEL: Shadow Cache Size (MB) Maximum              \n## PROPERTY_DESCRIPTION
+    \               \n## Maximum shadow cache size (MB).             \n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END
+    \               \n                       \n## PROPERTY_START              \n## PROPERTY_NAME:
+    USE_SHADOW_CACHE             \n## PROPERTY_GROUP: BP Queue and Cluster                \n##
+    PROPERTY_TYPE: Boolean   \n## UI_LABEL: Use Shadow Cache           \n## PROPERTY_DESCRIPTION
+    \               \n## Indicates whether to use shadow cache.              \n## Valid
+    values:               \n## true : (default) Enable shadow cache.               \n##
+    false : Enable shadow cache.                \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)   \n       \n## PROPERTY_END                \n                       \n##
+    PROPERTY_START              \n## PROPERTY_NAME: WF_IN_TRANSIT_TIMEOUT_LIST                   \n##
+    PROPERTY_GROUP: BP Queue and Cluster\n## PROPERTY_TYPE: Integer     \n## UI_LABEL:
+    Workflow in transit list timeout (ms)         \n## PROPERTY_DESCRIPTION                \n##
+    Workflow in transit list (in milliseconds).                 \n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file)   \n       \n## PROPERTY_END                \n
+    \                      \n## PROPERTY_START              \n## PROPERTY_NAME: ASYNC_BP
+    \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## Async business process.
+    This is now the InitialSteps.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MAP_CACHE
+    \n## PROPERTY_TYPE: String\n## UI_LABEL: Translation maps\n## PROPERTY_DESCRIPTION\n##
+    Translation map cache.\n## (For property value, see PROPERTY_VALUE_ALL section at
+    end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: ENVELOPE_CACHE
+    \n## PROPERTY_TYPE: String\n## UI_LABEL: Envelopes\n## PROPERTY_DESCRIPTION\n##
+    Envelope cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START   \t\t \n## PROPERTY_NAME: BP_SIZE
+    \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Memory Cache Threshold (MB)\n## PROPERTY_DESCRIPTION\n##
+    The average business process size in bytes.  This size  \n## is bigger on Windows.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: BP_TIME \n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    Time (in milliseconds) for the average business process.\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: JMS_LISTNERS \n## PROPERTY_TYPE: String\n## UI_LABEL: Desired Global
+    Threads\n## PROPERTY_DESCRIPTION\n## Queue threads.\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: NOAPP.MAX_POOL_SIZE_[number]\n## PROPERTY_TYPE: Integer\n## UI_LABEL:
+    Maximum Threads\n## PROPERTY_DESCRIPTION\n## Maximum number of threads available
+    for the queue.\n## (For property value, see PROPERTY_VALUE_ALL section at end of
+    file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: NOAPP.MIN_POOL_SIZE_[number]\n##
+    PROPERTY_TYPE: Integer\n## UI_LABEL: Minimum Threads\n## PROPERTY_DESCRIPTION\n##
+    Minimum number of threads available for the queue.\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: NOAPP.EXEC_CYCLE_[number]\n## PROPERTY_TYPE: Integer\n## UI_LABEL:
+    Number of Steps in the Execution Cycle \n## PROPERTY_DESCRIPTION\n## Number of business
+    process steps that are run before returning to the queue.\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: NOAPP.INITIAL_CYCLES_[number]\n## PROPERTY_TYPE: String\n## UI_LABEL:
+    Initial Steps in the first Execution Cycle \n## PROPERTY_DESCRIPTION\n## Number
+    of steps executed before returning a business process to the queue \n## on its first
+    execution cycle.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: NOAPP.CACHE_THRESHOLD_[number]\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: NOAPP.EXEC_CYCLE_TIME_[number]\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: NOAPP.MAX_WAIT_TIME_[number]\n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    NOAPP.RESOURCE_ALLOCATION_[number]\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Resource
+    Allocation\n## PROPERTY_DESCRIPTION\n## Amount of resources to allocate to a specific
+    queue for fair share scheduling.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    [operating system]-64.INIT_AGE \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Initial
+    Size of New (Nursery) Heap (MB)\n## PROPERTY_DESCRIPTION\n## The initial size of
+    the new heap area allocated to each server JVM.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    [operating system]-64.MAX_AGE \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Maximum
+    Size of New (Nursery) Heap (MB)\n## PROPERTY_DESCRIPTION\n## Maximum new age.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: JVM_ARGS_SUFFIX\n## PROPERTY_TYPE: String\n##
+    UI_LABEL: JVM Arguments Suffix\n## PROPERTY_DESCRIPTION\n## JVM arguments suffix.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: JVM_ARGS_PREFIX\n## PROPERTY_TYPE: String\n##
+    UI_LABEL: JVM Arguments Prefix\n## PROPERTY_DESCRIPTION\n## JVM arguments prefix.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: DISTRIBUTION_CACHE_MAX\n## PROPERTY_GROUP: BP
+    Queue Page\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Distribution Cache Maximum\n##
+    PROPERTY_DESCRIPTION\n## Maximum distribution cache.\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: EDI_CACHE \n## PROPERTY_GROUP: Cache Page \n## PROPERTY_TYPE: Integer\n##
+    UI_LABEL: Other EDI\n## PROPERTY_DESCRIPTION\n## EDI cache.\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: tune.[application server].documentInlineSerializationThreshold \n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: tune.[application server].jndi.contextpoolsize \n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    WFD_CACHE\n## PROPERTY_GROUP: Cache Page \n## PROPERTY_TYPE: Integer\n## UI_LABEL:
+    Workflow Definition\n## PROPERTY_DESCRIPTION\n## Workflow definition cache.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: USER_CACHE\n## PROPERTY_GROUP: Cache Page \n##
+    PROPERTY_TYPE: Integer\n## UI_LABEL: User Cache\n## PROPERTY_DESCRIPTION\n## User
+    cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)\n##
+    PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: GROUP_CACHE\n## PROPERTY_GROUP:
+    Cache Page \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Group Cache\n## PROPERTY_DESCRIPTION\n##
+    Group cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)\n##
+    PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: PERM_CACHE\n## PROPERTY_GROUP:
+    Cache Page \n## PROPERTY_TYPE: Integer\n## UI_LABEL: Permission Cache\n## PROPERTY_DESCRIPTION\n##
+    Permission cache.\n## (For property value, see PROPERTY_VALUE_ALL section at end
+    of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: [database].POOL_SIZE\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n## \n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: [database].ADDT_POOL_SIZE\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    \n## (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: PURGE.DEADLOCK_RETRIES\n## PROPERTY_GROUP: Purge
+    Settings Page\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Number of Purge Deadlock
+    Retries\n## PROPERTY_DESCRIPTION\n## Number of purge deadlock retries.\n## (For
+    property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: PURGE.MAX_PURGE_THREADS\n## PROPERTY_GROUP: Purge
+    Settings Page\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Maximum Purge Threads\n##
+    PROPERTY_DESCRIPTION\n## Maximum purge threads.\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    PURGE.PURGE_DOCS_ON_DISK\n## PROPERTY_GROUP: Purge Settings Page\n## PROPERTY_TYPE:
+    Boolean\n## UI_LABEL: Purge Documents on Disk\n## PROPERTY_DESCRIPTION\n## Indicates
+    whether to purge documents on disk.\n## Valid values:\n## true : (default)\n## false
+    : \n## (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: jdbcService.defaultDocumentStorageType\n## PROPERTY_TYPE:
+    String\n## PROPERTY_DESCRIPTION\n## Determines the storage type for document objects
+    constructed without \n## a storageType property.\n## The default value is DB.  \n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MIN_MEMORY_ASI\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n## Minimum memory values for various JVMs.\n## (For property
+    value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEMORY_ASI\n## PROPERTY_TYPE: Integer\n## UI_LABEL: Physical Memory
+    Allocated to Server (MB)\n## PROPERTY_DESCRIPTION\n## Memory values for various
+    JVMs.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)\n##
+    PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MIN_MEMORY_MySQL\n## PROPERTY_TYPE:
+    Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL
+    section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME:
+    STATIC_MEMORY_MySQL\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEMORY_BI\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEMORY_ACTIVEMQ\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MEMORY_SAPADAPTER\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEMORY_CLADAPTER\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEMORY_OPS\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##
+    The memory that is automatically allocated to the ops server\n## (For property value,
+    see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: IS_DEDUCT_MEM_ACTIVEMQ \n## PROPERTY_TYPE: Boolean\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for the Active MQ messaging\n## service
+    from the physical memory allocated to the application.\n## Valid values:\n## true
+    : Allocate memory for Active MQ.\n## false : (default) Do not allocate memory for
+    Active MQ.\n## (For property value, see PROPERTY_VALUE_ALL section at end of file)
+    \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: IS_DEDUCT_MEM_BI \n##
+    PROPERTY_TYPE: Boolean\n## UI_LABEL: Allocate memory for BI Listeners\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for BI listeners\n## from the physical
+    memory allocated to the application.\n## Valid values:\n## true : Allocate memory
+    for BI listeners.\n## false : (default) Do not allocate memory for BI listeners.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: IS_DEDUCT_MEM_CLADAPTER \n## PROPERTY_TYPE: Boolean\n##
+    UI_LABEL: Allocate memory for Command Line Adapter\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for the command line adapter\n## from the
+    physical memory allocated to the application.\n## Valid values:\n## true : Allocate
+    memory for the command line adapter.\n## false : (default) Do not allocate memory
+    for the command line adapter.\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file) \n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: IS_DEDUCT_MEM_SAPADAPTER
+    \n## PROPERTY_TYPE: Boolean\n## UI_LABEL: Allocate memory for SAP Adapter\n## PROPERTY_DESCRIPTION\n##
+    Indicates if you want to allocate memory for the SAP adapter\n## from the physical
+    memory allocated to the application.\n## Valid values:\n## true : Allocate memory
+    for the SAP adapter.\n## false : (default) Do not allocate memory for the SAP adapter.\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file) \n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: CONTAINER_MEMORY\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEM_PROPS_EVAL_ASI\n## PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n##
+    (For property value, see PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n##
+    PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS_EVAL_MYSQL\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n## PROPERTY_NAME: MEM_PROPS_EVAL_PROCESSORS\n##
+    PROPERTY_TYPE: Integer\n## PROPERTY_DESCRIPTION\n##\n## (For property value, see
+    PROPERTY_VALUE_ALL section at end of file)\n## PROPERTY_END\n\n## PROPERTY_START\n##
+    PROPERTY_NAME: MEM_PROPS_EVAL_PROCESSORS_RECALC_EXCLUDES\n## PROPERTY_TYPE: Integer\n##
+    PROPERTY_DESCRIPTION\n##\n## (For property value, see PROPERTY_VALUE_ALL section
+    at end of file)\n## PROPERTY_END\n\n## PROPERTY_VALUE_ALL\n\nMEMORY=1920\nPROCESSORS=2\n\n#Number
+    of ASI nodes and container nodes\nNUM_ASI_NODES=1\n\n#NO_APP Server Values\nNOAPP.JMS_PAGING_MAX=3840\nNOAPP.JMS_PAGING_HIGH=480\n\n#BP
+    Queue and Cluster\nMULTICAST_INTERVAL=6000\nDISTRIBUTION_ON_WEIGHT=false\nDISTRIBUTION_CACHE_MAX=5000\nDISTRIBUTION_CACHE_MIN=8\nSWITCH_INTERVAL=180000\nMAX_SHADOW_CACHE_SIZE=100\nUSE_SHADOW_CACHE=true\nWF_IN_TRANSIT_TIMEOUT_LIST=20000\n\n#DB
+    Connection Pools\nMIN_TRANS_POOL=1\nMAX_TRANS_POOL=30\n\nMIN_NONTRANS_POOL=1\nMAX_NONTRANS_POOL=30\n\n#Agent
+    server heap Size\nLinux.AGENT.INIT_HEAP=512\nLinux.AGENT.MAX_HEAP=1024\n\n#Increasing
+    heap size for 64-Bit JVM\nLinux-64.INIT_HEAP=960\nLinux-64.MAX_HEAP=1920\n\n#NewAge
+    Memory - 64bit\nLinux-64.INIT_AGE=256\nLinux-64.MAX_AGE=512\n\n#Survivor ratio\nLinux-64.SURVIVOR_RATIO=4\n\n#BP
+    Execution\nBP_STEPS=100\nASYNC_BP=5\n\n#Caches\nMAP_CACHE=100\nENVELOPE_CACHE=500\nEDI_CACHE=100\n\n\n\ntune.websphere.documentInlineSerializationThreshold=102400\ntune.weblogic.documentInlineSerializationThreshold=102400\ntune.noapp.documentInlineSerializationThreshold=102400\ntune.jboss.documentInlineSerializationThreshold=102400\n\ntune.websphere.jndi.contextpoolsize=20\ntune.weblogic.jndi.contextpoolsize=50\ntune.noapp.jndi.contextpoolsize=50\ntune.jboss.jndi.contextpoolsize=50\n\n\nJMS_LISTNERS=8\nBP_SIZE=16384\nBP_TIME=500\nGLOBAL_THREADLIMIT=8\nNOAPP.MAX_POOL_SIZE_1=1\nNOAPP.MIN_POOL_SIZE_1=0\nNOAPP.EXEC_CYCLE_1=1000\nNOAPP.INITIAL_CYCLES_1=5\nNOAPP.CACHE_THRESHOLD_1=0\nNOAPP.EXEC_CYCLE_TIME_1=1000000000\nNOAPP.MAX_WAIT_TIME_1=1000000000\nNOAPP.RESOURCE_ALLOCATION_1=10\nNOAPP.MAX_POOL_SIZE_2=3\nNOAPP.MIN_POOL_SIZE_2=0\nNOAPP.EXEC_CYCLE_2=100\nNOAPP.INITIAL_CYCLES_2=5\nNOAPP.CACHE_THRESHOLD_2=10\nNOAPP.EXEC_CYCLE_TIME_2=1000000000\nNOAPP.MAX_WAIT_TIME_2=1000000000\nNOAPP.RESOURCE_ALLOCATION_2=20\nNOAPP.MAX_POOL_SIZE_3=5\nNOAPP.MIN_POOL_SIZE_3=0\nNOAPP.EXEC_CYCLE_3=100\nNOAPP.INITIAL_CYCLES_3=5\nNOAPP.CACHE_THRESHOLD_3=10\nNOAPP.EXEC_CYCLE_TIME_3=10000000\nNOAPP.MAX_WAIT_TIME_3=1000000000\nNOAPP.RESOURCE_ALLOCATION_3=40\nNOAPP.MAX_POOL_SIZE_4=8\nNOAPP.MIN_POOL_SIZE_4=1\nNOAPP.EXEC_CYCLE_4=100\nNOAPP.INITIAL_CYCLES_4=5\nNOAPP.CACHE_THRESHOLD_4=20\nNOAPP.EXEC_CYCLE_TIME_4=2000000\nNOAPP.MAX_WAIT_TIME_4=72000000\nNOAPP.RESOURCE_ALLOCATION_4=50\nNOAPP.MAX_POOL_SIZE_5=16\nNOAPP.MIN_POOL_SIZE_5=0\nNOAPP.EXEC_CYCLE_5=100\nNOAPP.INITIAL_CYCLES_5=5\nNOAPP.CACHE_THRESHOLD_5=30\nNOAPP.EXEC_CYCLE_TIME_5=100000\nNOAPP.MAX_WAIT_TIME_5=3600000\nNOAPP.RESOURCE_ALLOCATION_5=50\nNOAPP.MAX_POOL_SIZE_6=8\nNOAPP.MIN_POOL_SIZE_6=0\nNOAPP.EXEC_CYCLE_6=10\nNOAPP.INITIAL_CYCLES_6=5\nNOAPP.CACHE_THRESHOLD_6=50\nNOAPP.EXEC_CYCLE_TIME_6=100000\nNOAPP.MAX_WAIT_TIME_6=3600000\nNOAPP.RESOURCE_ALLOCATION_6=60\nNOAPP.MAX_POOL_SIZE_7=16\nNOAPP.MIN_POOL_SIZE_7=0\nNOAPP.EXEC_CYCLE_7=5\nNOAPP.INITIAL_CYCLES_7=5\nNOAPP.CACHE_THRESHOLD_7=50\nNOAPP.EXEC_CYCLE_TIME_7=500\nNOAPP.MAX_WAIT_TIME_7=1200000\nNOAPP.RESOURCE_ALLOCATION_7=90\nNOAPP.MAX_POOL_SIZE_8=16\nNOAPP.MIN_POOL_SIZE_8=0\nNOAPP.EXEC_CYCLE_8=2\nNOAPP.INITIAL_CYCLES_8=10\nNOAPP.CACHE_THRESHOLD_8=100\nNOAPP.EXEC_CYCLE_TIME_8=300\nNOAPP.MAX_WAIT_TIME_8=60000\nNOAPP.RESOURCE_ALLOCATION_8=120\nNOAPP.MAX_POOL_SIZE_9=4\nNOAPP.MIN_POOL_SIZE_9=0\nNOAPP.EXEC_CYCLE_9=50\nNOAPP.INITIAL_CYCLES_9=5\nNOAPP.CACHE_THRESHOLD_9=10\nNOAPP.EXEC_CYCLE_TIME_9=100000\nNOAPP.MAX_WAIT_TIME_9=3600000\nNOAPP.RESOURCE_ALLOCATION_9=50\n\n#JVM
+    Arguments suffix\nJVM_ARGS_SUFFIX=\n\n#JVM Arguments PREFIX\nJVM_ARGS_PREFIX=\n\n#Minimum
+    Memory values for various JVMs\nMIN_MEMORY_ASI=1536\nMIN_MEMORY_MySQL=0\nSTATIC_MEMORY_MySQL=0\n\nMEMORY_BI=256\nMEMORY_ACTIVEMQ=512\nMEMORY_SAPADAPTER=256\nMEMORY_CLADAPTER=128\nMEMORY_OPS=128\n\nIS_DEDUCT_MEM_ACTIVEMQ=true\nIS_DEDUCT_MEM_BI=true\nIS_DEDUCT_MEM_CLADAPTER=true\nIS_DEDUCT_MEM_SAPADAPTER=true\n\nMEMORY_ASI=1920\n\nLinux-64.MAX_PERM_SIZE=384\n\n#the
+    below values are in KB\nLinux-64.STATIC_STACK=256\n\n#the below values are in KB\nLinux-64.MEMORY_SPLIT=-128\n\nCONTAINER_MEMORY=0\n\nENABLE_HEAP_DUMP_OOM=true\nENABLE_HEAP_DUMP_SGQTCRTLBRK=true\nENABLE_VERBOSE_GC=false\nWFD_CACHE=120\nUSER_CACHE=120\nGROUP_CACHE=120\nPERM_CACHE=2400\nPURGE.DEADLOCK_RETRIES=30\nPURGE.MAX_PURGE_THREADS=1\nPURGE.PURGE_DOCS_ON_DISK=true\njdbcService.defaultDocumentStorageType=DB\nTUNING_PROPS_UPDATED=false\nDummy=Dummy\nMEM_PROPS=1920\nMEM_PROPS_EVAL_ASI=1920\nMEM_PROPS_EVAL_MYSQL=128\nMEM_PROPS_EVAL_PROCESSORS=8\nMEM_PROPS_EVAL_JMS_LISTENERS=3\nMAX_HEAP_EVAL_ASI=480\nLinux-64.MEMORY_PER_ASI_AFTER_SPLIT=-96\n"
+  system_overrides.properties: |+
+    ##Based on the DB used, please uncomment the following section
+  
+  
+    jdbcService.defaultDocumentStorageType=DB
+    #noapp.queueWatcher=true
+  
+  
+    ## Uncomment the below section and replace {DB} with applicable value [oracle|db2]
+  
+    #jdbcService.{DB}Pool_NoTrans.buffersize=500
+    #jdbcService.{DB}Pool_NoTrans.initsize=1
+    #jdbcService.{DB}Pool_NoTrans.maxsize=30
+    #jdbcService.{DB}ArchivePool.buffersize=500
+    #jdbcService.{DB}ArchivePool.initsize=0
+    #jdbcService.{DB}ArchivePool.maxsize=20
+    #jdbcService.{DB}Pool.buffersize=500
+    #jdbcService.{DB}Pool.initsize=1
+    #jdbcService.{DB}Pool.maxsize=30
+    #jdbcService.{DB}UIPool.buffersize=500
+    #jdbcService.{DB}UIPool.initsize=0
+    #jdbcService.{DB}UIPool.maxsize=20
+    #jdbcService.{DB}Pool_local.buffersize=500
+    #jdbcService.{DB}Pool_local.initsize=1
+    #jdbcService.{DB}Pool_local.maxsize=30

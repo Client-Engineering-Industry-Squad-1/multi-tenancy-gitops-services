@@ -1,0 +1,35 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/api-frontend-service.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "sfg-api-frontend-svc"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "api-frontend-svc"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 35005
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 35006
+      targetPort: https
+      protocol: TCP
+      name: https
+  selector:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "api-server"

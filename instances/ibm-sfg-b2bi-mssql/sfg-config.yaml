@@ -1,0 +1,72 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/configmap.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "sfg-config"
+  annotations:
+        # This is what defines this resource as a hook. Without this line, the
+        # job is considered part of the release.
+        "helm.sh/hook": "pre-install, pre-upgrade"
+        "helm.sh/hook-weight": "0"
+        #"helm.sh/hook-delete-policy": "before-hook-creation"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "config"
+data:
+  setup.cfg: |-
+    INITIAL_PORT=50000
+    UPGRADE=false
+    SANDBOX_LAUNCH_CLA2_SERVER=true
+    SANDBOX_tls_version=TLSv1.2
+    SANDBOX_trustServerCertificate=true
+    ADMIN_EMAIL_ADDRESS=freitasb@br.ibm.com
+    BASE_PORT=50000
+    DB_CREATE_SCHEMA=true
+    DB_DATA=B2BIDB
+    DB_DRIVERS=mssql-jdbc-10.2.1.jre8.jar
+    DB_HOST=mssql-deployment.tools.svc.cluster.local
+    DB_KEYSTORE=
+    DB_PORT=1433
+    DB_SECRET=b2b-db-secret
+    DB_TRUSTSTORE=
+    DB_VENDOR=mssql
+    ENABLE_FIPS_MODE=false
+    JCE_POLICY_FILE=
+    JMS_CHANNEL=DEV.APP.SVRCONN
+    JMS_CIPHERSUITE=
+    JMS_CONNECTION_FACTORY=com.ibm.mq.jms.MQQueueConnectionFactory
+    JMS_CONNECTION_NAME_LIST=172.21.107.237(1414)
+    JMS_ENABLE_SSL=false
+    JMS_HOST=172.21.107.237
+    JMS_KEYSTORE_PATH=
+    JMS_PORT=1414
+    JMS_PROTOCOL=TLSv1.2
+    JMS_QUEUE_NAME=DEV.QUEUE.1
+    JMS_SECRET=b2b-jms-secret
+    JMS_TRUSTSTORE_PATH=
+    JMS_VENDOR=IBMMQ
+    LIBERTY_JVM_OPTIONS=
+    LIBERTY_KEYSTORE_LOCATION=
+    LIBERTY_PROTOCOL=TLSv1.2
+    LIBERTY_SECRET=
+    LICENSE_ACCEPT_ENABLE_EBICS=false
+    LICENSE_ACCEPT_ENABLE_FILE_OPERATION=false
+    LICENSE_ACCEPT_ENABLE_FINANCIAL_SERVICES=false
+    LICENSE_ACCEPT_ENABLE_SFG=true
+    MSQL_HOST_NAME_IN_CERTIFICATE=mssql-deployment.tools.svc.cluster.local
+    MSSQL_TRUST_SERVER_CERTIFICATE=true
+    NIST_COMPLIANCE_MODE=off
+    ORACLE_USE_SERVICE_NAME=false
+    SMTP_HOST=localhost
+    SOFT_STOP_TIMEOUT=
+    SYSTEM_PASSPHRASE_SECRET=b2b-system-passphrase-secret
+    TLS_VERSION=TLSv1.2
+    UPDATE_JCE_POLICY_FILE=false
+    USESSL=false

@@ -1,0 +1,127 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/cleanup/post-delete-cleanup-job.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "sfg-post-delete-cleanup-job"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "post-delete-cleanup-job"
+  annotations:
+    "helm.sh/hook": post-delete
+    "helm.sh/hook-weight": "3"
+    #"helm.sh/hook-delete-policy": "hook-succeeded, before-hook-creation"
+spec:
+  backoffLimit: 5
+  activeDeadlineSeconds: 300
+  template:
+    metadata:
+      name: "sfg-post-delete-cleanup-job"
+      labels:
+        app.kubernetes.io/name: "sfg"
+        helm.sh/chart: "ibm-sfg-prod"
+        app.kubernetes.io/managed-by: "Helm"
+        app.kubernetes.io/instance: "release-name"
+        release: "release-name"
+        app.kubernetes.io/component: "post-delete-cleanup-job"
+      annotations:        
+        productID: "0acf190850514574bb48a3d0ac0341e6"
+        productName: "IBM Sterling File Gateway Enterprise Edition Certified Container"
+        productVersion: "6.1.0.0"
+        productMetric: "FREE"
+        productChargedContainers: deleteCleanup
+    spec:
+      serviceAccountName: "sfg-cleanup-sa"
+      hostNetwork: false
+      hostPID: false
+      hostIPC: false
+      securityContext:
+        
+        fsGroup: 1010
+        runAsNonRoot: true
+        runAsUser: 1010
+        supplementalGroups:
+        - 65534
+      containers:
+      - name: cleanup
+        image:  "ibmcom/opencontent-common-utils:1.1.4"
+        imagePullPolicy:  "IfNotPresent"
+        securityContext:
+          
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop:
+            - ALL
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsUser: 1010
+        command:
+        - "/bin/bash"
+        - -c
+        - |
+          set -ex
+          echo "starting cleanup..."
+          echo "release namespace - tools"
+          if kubectl get configmap -n tools "sfg-config" ; then
+             echo "cleaning up config map..."
+             kubectl delete configmap -n tools "sfg-config"
+          fi
+          if kubectl get configmap -n tools "sfg-config-property" ; then
+             echo "cleaning up config map..."
+             kubectl delete configmap -n tools "sfg-config-property"
+          fi
+          if kubectl get configmap -n tools "sfg-config-dummy-property" ; then
+             echo "cleaning up config map..."
+             kubectl delete configmap -n tools "sfg-config-dummy-property"
+          fi
+          if kubectl get pvc -n tools "sfg-resources" ; then\
+             echo "cleaning up resources pvc..."
+             kubectl delete pvc -n tools "sfg-resources"
+          fi
+          if kubectl get pvc -n tools "sfg-logs" ; then
+             echo "cleaning up logs pvc..."
+             kubectl delete pvc -n tools "sfg-logs"
+          fi
+          
+          if kubectl get pvc -n tools "sfg-documents" ; then
+             echo "cleaning up documents pvc..."
+             kubectl delete pvc -n tools "sfg-documents"
+          fi
+          
+          
+          
+          
+          
+          if kubectl get pods -n tools test-config ; then
+             echo "cleaning up test pod..."
+             kubectl delete pods -n tools test-config
+          fi
+          if kubectl get cronjob -n tools "sfg-ext-purge" ; then
+             echo "cleaning up external purge cron job..."
+             kubectl delete cronjob -n tools "sfg-ext-purge"
+          fi
+
+        resources:
+          requests:
+            memory: 128Mi
+            cpu: 10m
+          limits:
+            memory: 128Mi
+            cpu: 50m
+      affinity:        
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      restartPolicy: Never

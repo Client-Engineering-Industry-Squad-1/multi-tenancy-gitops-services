@@ -1,0 +1,33 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/headless-service.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+apiVersion: v1
+kind: Service
+metadata:
+  name: "sfg-cluster-svc"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "cluster-svc"
+spec:
+  publishNotReadyAddresses: true
+  clusterIP: None
+  selector:
+    tier: backend
+  ports:
+    - name: http
+      port: 50000
+      targetPort: 50000
+    - name: mcast1
+      port: 50061
+      targetPort: 50061
+    - name: mcast2
+      port: 50062
+      targetPort: 50062
+    - name: mcast3
+      port: 50063
+      targetPort: 50063

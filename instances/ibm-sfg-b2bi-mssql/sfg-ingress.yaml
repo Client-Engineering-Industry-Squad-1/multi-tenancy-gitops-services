@@ -1,0 +1,114 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/ingress.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+
+
+
+
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: "sfg-ingress"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "ingress"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/secure-backends: "true"
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    nginx.ingress.kubernetes.io/affinity: "cookie"
+    nginx.ingress.kubernetes.io/session-cookie-name: "route"
+    nginx.ingress.kubernetes.io/session-cookie-hash: "sha1"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/session-cookie-path: "/"
+    ingress.kubernetes.io/secure-backends: "true"
+    ingress.kubernetes.io/backend-protocol: "HTTPS"
+    ingress.kubernetes.io/affinity: "cookie"
+    ingress.kubernetes.io/session-cookie-name: "route"
+    ingress.kubernetes.io/session-cookie-hash: "sha1"
+    ingress.kubernetes.io/use-regex: "true"
+    ingress.kubernetes.io/session-cookie-path: "/"
+spec:
+  tls:
+    - hosts:
+      - "asi.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"      
+      secretName: ""
+    - hosts:
+      - "ac.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"      
+      secretName: ""
+    - hosts:
+      - "api.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"      
+      secretName: ""
+  rules:
+    - host: "asi.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /dashboard
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /filegateway
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /myfilegateway
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /myfg
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /mailbox
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /queueWatch
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /wsdl
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /soap
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /soap-new
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /soap-sync
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+          - path: /soap-sync-new
+            backend:
+              serviceName: "sfg-asi-frontend-svc"
+              servicePort: http
+    - host: "api.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: "sfg-api-frontend-svc"
+              servicePort: http
+          - path: /B2BAPIs/svc
+            backend:
+              serviceName: "sfg-api-frontend-svc"
+              servicePort: http
+          - path: /propertyUI/app
+            backend:
+              serviceName: "sfg-api-frontend-svc"
+              servicePort: http

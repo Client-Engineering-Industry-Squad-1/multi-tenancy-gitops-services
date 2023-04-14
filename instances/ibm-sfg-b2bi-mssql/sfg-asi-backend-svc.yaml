@@ -1,0 +1,60 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/asi-backend-service.yaml
+# (C) Copyright 2020 Syncsort Incorporated. All rights reserved.
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "sfg-asi-backend-svc"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "asi-backend-svc"
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 30201
+      targetPort: 30201
+      protocol: TCP
+      name: adapter-1
+    
+    
+    
+    
+    - port: 30301
+      
+      targetPort: adapters-1
+      protocol: TCP
+      name: adapters-1
+    - port: 30302
+      
+      targetPort: adapters-2
+      protocol: TCP
+      name: adapters-2
+    - port: 30303
+      
+      targetPort: adapters-3
+      protocol: TCP
+      name: adapters-3
+    - port: 30304
+      
+      targetPort: adapters-4
+      protocol: TCP
+      name: adapters-4
+    - port: 30305
+      
+      targetPort: adapters-5
+      protocol: TCP
+      name: adapters-5
+  selector:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "asi-server"

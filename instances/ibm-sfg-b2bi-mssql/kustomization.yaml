@@ -1,0 +1,20 @@
+resources:
+  - sfg-ac-frontend-svc.yaml
+  - sfg-ac-server.yaml
+  - sfg-api-frontend-svc.yaml
+  - sfg-api-server.yaml
+  - sfg-asi-backend-svc.yaml
+  - sfg-asi-frontend-svc.yaml
+  - sfg-asi-server.yaml
+  - sfg-cleanup-rb.yaml
+  - sfg-cleanup-role.yaml
+  - sfg-cleanup-sa.yaml
+  - sfg-cluster-svc.yaml
+  - sfg-config-dummy-property.yaml
+  - sfg-config-property.yaml
+  - sfg-config.yaml
+  - sfg-db-setup.yaml
+  - sfg-ingress.yaml
+  - sfg-post-delete-cleanup-job.yaml
+  - test-config.yaml
+  - tools-b2bi-anyuid.yaml

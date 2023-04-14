@@ -1,0 +1,43 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/asi-frontend-service.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: "sfg-asi-frontend-svc"
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "asi-frontend-svc"
+spec:
+  type: ClusterIP
+  ports:
+    - port: 35000
+      targetPort: http
+      protocol: TCP
+      name: http
+    - port: 35002
+      targetPort: soa
+      protocol: TCP
+      name: soa
+    - port: 35003
+      targetPort: soassl
+      protocol: TCP
+      name: soassl
+    - port: 5580
+      targetPort: 5580
+      protocol: TCP
+      name: lwfw-soap
+  selector:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "asi-server"

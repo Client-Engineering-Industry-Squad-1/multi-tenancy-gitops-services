@@ -1,0 +1,69 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/tests/test-config.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+# helm test - verify b2bi server is running (can download index.html)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "test-config"
+  annotations:
+    "helm.sh/hook": test-success
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "test-url"
+spec:
+  serviceAccountName: b2bi
+  hostNetwork: false
+  hostPID: false
+  hostIPC: false
+  securityContext:
+    
+    fsGroup: 1010
+    runAsNonRoot: true
+    runAsUser: 1010
+    supplementalGroups:
+    - 65534
+  volumes:
+    - name: resources
+      persistentVolumeClaim:
+        claimName: "sfg-resources"
+  containers:
+  - name: "test-url"
+    resources:
+      limits:
+        cpu: 4000m
+        memory: 8Gi
+      requests:
+        cpu: 2000m
+        memory: 4Gi
+    image: "ibmcom/opencontent-common-utils:1.1.4"
+    imagePullPolicy: "IfNotPresent"
+    command: ["/bin/sh", "-c", "echo 'Check configuration file available in Persistent Volume' | [ -f /ibm/resources/setup.cfg ] && echo 'configuration file available'"]
+    volumeMounts:
+    - name: resources
+      mountPath: "/ibm/resources"
+    securityContext:
+      
+      allowPrivilegeEscalation: false
+      capabilities:
+        drop:
+        - ALL
+      privileged: false
+      readOnlyRootFilesystem: false
+      runAsUser: 1010
+  restartPolicy: Never
+  affinity:    
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: beta.kubernetes.io/arch
+            operator: In
+            values:
+            - amd64

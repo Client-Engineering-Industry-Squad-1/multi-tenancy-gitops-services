@@ -1,0 +1,26 @@
+
+---
+# Source: ibm-sfg-b2bi/charts/ibm-sfg-prod/templates/cleanup/cleanup-service-account.yaml
+# (C) Copyright 2019 Syncsort Incorporated. All rights reserved.
+
+apiVersion: v1
+kind: ServiceAccount
+imagePullSecrets:
+  - name: sa-tools
+
+  - name: ibm-entitlement-key
+
+metadata:
+  name: "sfg-cleanup-sa"
+  namespace: tools
+  labels:
+    app.kubernetes.io/name: "sfg"
+    helm.sh/chart: "ibm-sfg-prod"
+    app.kubernetes.io/managed-by: "Helm"
+    app.kubernetes.io/instance: "release-name"
+    release: "release-name"
+    app.kubernetes.io/component: "cleanup-sa"
+  annotations:
+        "helm.sh/hook": "pre-upgrade, post-delete"
+        "helm.sh/hook-weight": "0"
+        #"helm.sh/hook-delete-policy": "hook-succeeded, before-hook-creation"
