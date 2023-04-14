@@ -13,7 +13,7 @@ resources:
   - sfg-config-dummy-property.yaml
   - sfg-config-property.yaml
   - sfg-config.yaml
-  - sfg-db-setup.yaml
+  # - sfg-db-setup.yaml
   - sfg-ingress.yaml
   - sfg-post-delete-cleanup-job.yaml
   - test-config.yaml
