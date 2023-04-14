@@ -30,6 +30,7 @@ metadata:
     ingress.kubernetes.io/use-regex: "true"
     ingress.kubernetes.io/session-cookie-path: "/"
 spec:
+  ingressClassName: sfg-ingress
   tls:
     - hosts:
       - "asi.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud"      

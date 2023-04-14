@@ -197,7 +197,7 @@ spec:
               - /bin/sh
               - -c
               - /ibm/b2bi/install/bin/b2biLivelinessCheck.sh api
-            initialDelaySeconds: 120
+            initialDelaySeconds: 600
             timeoutSeconds: 5
             periodSeconds:  60
           readinessProbe:
@@ -205,7 +205,7 @@ spec:
               path: /propertyUI/app
               port: 50083
               scheme: HTTP
-            initialDelaySeconds: 120
+            initialDelaySeconds: 600
             timeoutSeconds: 5
             periodSeconds: 60
       affinity:        

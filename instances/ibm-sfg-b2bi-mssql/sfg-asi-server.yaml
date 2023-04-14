@@ -242,7 +242,7 @@ spec:
               - /bin/sh
               - -c
               - /ibm/b2bi/install/bin/b2biLivelinessCheck.sh asi
-            initialDelaySeconds: 60
+            initialDelaySeconds: 600
             timeoutSeconds: 30
             periodSeconds: 60
           readinessProbe:
@@ -250,7 +250,7 @@ spec:
               path: /dashboard/
               port: 50000
               scheme: HTTP
-            initialDelaySeconds: 120
+            initialDelaySeconds: 600
             timeoutSeconds: 5
             periodSeconds: 60
       affinity:        
