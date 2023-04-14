@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -69,11 +69,11 @@ ibm-sfg-prod:
     nistComplianceMode: "off"
     # Provide the DB attributes
     dbVendor: mssql
-    dbHost: pepsi-b2bi-poc-sql1.database.windows.net
+    dbHost: mssql-deployment.tools.svc.cluster.local
     dbPort: 1433
     dbData: B2BIDB
     dbDrivers: mssql-jdbc-10.2.1.jre8.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -89,9 +89,9 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.30.139.240
+    jmsHost: 172.21.107.237
     jmsPort: 1414
-    jmsConnectionNameList: 172.30.139.240(1414)
+    jmsConnectionNameList: 172.21.107.237(1414)
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
@@ -100,12 +100,12 @@ ibm-sfg-prod:
     SANDBOX_trustServerCertificate: true
     SANDBOX_tls_version: TLSv1.2
     tlsVersion: TLSv1.2
-    msqlHostNameInCertificate: pepsi-b2bi-poc-sql1.database.windows.net
+    msqlHostNameInCertificate: mssql-deployment.tools.svc.cluster.local
     mssqlTrustServerCertificate: true
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
-    replicaCount: 1
+    replicaCount: 2
 
     resources:
       limits:
@@ -116,7 +116,7 @@ ibm-sfg-prod:
         memory: 4Gi
 
     autoscaling:
-      enabled: true
+      enabled: false
       minReplicas: 3
       maxReplicas: 5
       targetCPUUtilizationPercentage: 60
@@ -154,11 +154,6 @@ ibm-sfg-prod:
           targetPort: 5580
           nodePort: 30005
           protocol: TCP
-        #-name: http-1
-        # port: 46000
-        # targetPort: http
-        # nodePort: 30100
-        # protocol: TCP
     backendService:
   #    type: NodePort
       type: LoadBalancer
@@ -176,7 +171,7 @@ ibm-sfg-prod:
           protocol: TCP
     ingress:
       internal:
-        host: asi.apps.pawaro.eastus.aroapp.io
+        host: asi.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
@@ -186,7 +181,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   ac:
-    replicaCount: 1
+    replicaCount: 2
     resources:
       limits:
         cpu: 4000m
@@ -232,7 +227,7 @@ ibm-sfg-prod:
         #  protocol: TCP
     ingress:
       internal:
-        host: ac.apps.pawaro.eastus.aroapp.io
+        host: ac.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
@@ -242,7 +237,7 @@ ibm-sfg-prod:
         #    servicePort: "my-http"
         #    enableHttps: false
   api:
-    replicaCount: 1
+    replicaCount: 2
     frontendService:
       type: ClusterIP
       ports:
@@ -266,7 +261,7 @@ ibm-sfg-prod:
         # protocol: TCP
     ingress:
       internal:
-        host: api.apps.pawaro.eastus.aroapp.io
+        host: api.itzroks-3100027vrr-mi7r0j-4b4a324f027aea19c5cbc0c3275c4656-0000.us-south.containers.appdomain.cloud
         tls:
           enabled: true
           secretName: ""
